@@ -8,7 +8,7 @@ parser.add_argument('reads2',help="reads file2")
 parser.add_argument('ref1',help="reference file1")
 parser.add_argument('ref2',help="reference file2")
 parser.add_argument('-s',choices=[0,1],help="Specific points,0 or 1",default=0,dest='points',type= int)
-parser = add_argument('-d',help="Output directory",dest='output',default="current directory")
+parser.add_argument('-d',help="Output directory",dest='output',default="current directory")
 args = parser.parse_args()
 
 directory=""
