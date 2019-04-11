@@ -30,7 +30,7 @@ else:
     directory=args.output
 
 
-##########fastp#########
+##########fastp############
 
 command1='cd ~/bigdata/software/fastp'
 err = os.system(command1)
