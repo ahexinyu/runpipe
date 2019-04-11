@@ -32,13 +32,16 @@ else:
 
 ##########fastp################
 
-fastp_command='~/bigdata/software/fastp/fastp -i '+ reads1 +' -o 1.fasp -I '+ reads2+' -O 2.fasp --qualified_quality_phred=15 -p'
+absPath_fastp='~/bigdata/software/fastp/'
+fastp_command=absPath_fastp + 'fastp -i '+ reads1 +' -o 1.fasp -I '+ reads2+' -O 2.fasp --qualified_quality_phred=15 -p'
 err =os.system(fastp_command)
 if err!=0:
     print('Failed to run fastp')
     exit(-1)
 
 #########seqtk##########
+
+
 
 
 
