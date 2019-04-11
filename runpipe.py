@@ -37,6 +37,8 @@ err = os.system(command1)
 if err != 0:
     print('Failed to find fastp file')
     exit(-1)
+pwd2=os.getcwd()
+print(pwd2)
 fastp_command='./fastp -i '+ reads1 +' -o 1.fasp -I '+ reads2+' -O 2.fasp --qualified_quality_phred=15 -p'
 err =os.system(fastp_command)
 if err!=0:
