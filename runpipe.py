@@ -74,6 +74,8 @@ err=os.system(bwa_command2)
 if err!=0:
     print('Failed to run bwa mem')
     exit(-1)
+command_load='module load samtools'
+os.system(command_load)
 bwa_command3=absPath_samtools+'samtools sort mem.sam>sorted.sam'
 err=os.system(bwa_command3)
 if err!=0:
