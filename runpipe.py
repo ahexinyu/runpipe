@@ -83,6 +83,11 @@ err=os.system(bwa_command4)
 if err!=0:
     print('Failed to run samtools view)
     exit(-1)
+          
+          
+
+########picard#######
+
 
 
 
