@@ -43,7 +43,7 @@ else:
 
 
 ##########fastp################
-command_load='module load fastp/0.19.4'
+command_load='module load fastp'
 err=os.system(command_load)
 if err!=0:
     print('Failed to load fastp')
