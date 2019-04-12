@@ -14,7 +14,7 @@ args = parser.parse_args()
 
 ######read config file########
 cp=ConfigParser.ConfigParser()
-cp.read(pipe.xcconfig)
+cp.read(runpipe.xcconfig)
 absPath_fastp=cp.get("path","absPath_fastq")
 
 print(absPath_fastp)
