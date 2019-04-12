@@ -18,6 +18,7 @@ cp.read('run.conf')
 absPath_fastp=cp.get("path","absPath_fastp")
 absPath_seqtk=cp.get("path","absPath_seqtk")
 absPath_bwa=cp.get("path","absPath_bwa")
+absPath_samtools=cp.get("path","absPath_bwa")
 ref1=cp.get("reference_file","sabin1")
 ref2=cp.get("reference_file","sabin3")
 
@@ -73,12 +74,12 @@ err=os.system(bwa_command2)
 if err!=0:
     print('Failed to run bwa mem')
     exit(-1)
-bwa_command3='samtools sort mem.sam>sorted.sam'
+bwa_command3=absPath_samtools+'samtools sort mem.sam>sorted.sam'
 err=os.system(bwa_command3)
 if err!=0:
     print('Failed to run samtools sort')
     exit(-1)
-bwa_command4='samtools view -h sorted.sam > sorted.bam'
+bwa_command4=absPath_samtools+'samtools view -h sorted.sam > sorted.bam'
 err=os.system(bwa_command4)
 if err!=0:
     print('Failed to run samtools view')
