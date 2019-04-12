@@ -37,23 +37,8 @@ if err!=0:
     exit(-1)
 
 
-#########seqtk##########
-absPath_seqtk='~/bigdata/software/seqtk/seqtk/'
-seqtk_command1=absPath_seqtk+'seqtk sample -s seed=11 '+absPath_fastp+'1.fasp 5000000>1.fq'
-err=os.system(seqtk_command1)
-if err!=0:
-    print('Failed to run seqtk command1')
-    exit(-1)
-seqtk_command2=absPath_seqtk+'seqtk sample -s seed=11 '+absPath_fastp+'2.fasp 5000000>1.fq'
-err=os.system(seqtk_command2)
-if err!=0:
-    print('Failed to run seqtk command2')
-    exit(-1)
 
 
-#########bwa############
-absPath_bwa='~/bigdata/software/bwa/'
-bwa
 
 
 
