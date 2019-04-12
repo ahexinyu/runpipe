@@ -1,6 +1,6 @@
 import os
 import argparse
-from configparser import ConfigParser
+import ConfigParser
 
 parser = argparse.ArgumentParser(description='runPipe.py')
 parser.add_argument('reads1',help="reads file1")
