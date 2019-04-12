@@ -15,7 +15,7 @@ args = parser.parse_args()
 ######read config file########
 cp=ConfigParser.ConfigParser()
 cp.read('run.conf')
-absPath_fastp=cp.get("path","absPath_fastq")
+absPath_fastp=cp.get("path","absPath_fastp")
 absPath_seqtk=cp.get("path","absPath_seqtk")
 ref1=cp.get("reference_file","sabin1")
 ref2=cp.get("reference_file","sabin3")
