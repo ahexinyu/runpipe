@@ -48,7 +48,7 @@ err=os.system(command_load)
 if err!=0:
     print('Failed to load fastp')
     exit(-1)
-fastp_command=absPath_fastp + 'fastp -i '+ reads1 +' -o 1.fasp -I '+ reads2+' -O 2.fasp --qualified_quality_phred=15 -p'
+fastp_command='fastp -i '+ reads1 +' -o 1.fasp -I '+ reads2+' -O 2.fasp --qualified_quality_phred=15 -p'
 err =os.system(fastp_command)
 if err!=0:
     print('Failed to run fastp')
