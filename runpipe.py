@@ -51,7 +51,7 @@ if err!=0:
     exit(-1)
 
 #########seqtk##########
-seqtk_command1=absPath_seqtk+'seqtk sample -s seed=11 1.fasp 500>1.fq seqtk sample -s seed=11 2.fasp 500>1.fq''
+seqtk_command1=absPath_seqtk+'seqtk sample -s seed=11 1.fasp 500>1.fq seqtk sample -s seed=11 2.fasp 500>1.fq'
 err=os.system(seqtk_command1)
 if err!=0:
     print('Failed to run seqtk command')
