@@ -42,7 +42,7 @@ else:
 
 
 ##########fastp################
-
+os.system('module load fastp/0.19.4')
 fastp_command=absPath_fastp + 'fastp -i '+ reads1 +' -o 1.fasp -I '+ reads2+' -O 2.fasp --qualified_quality_phred=15 -p'
 err =os.system(fastp_command)
 if err!=0:
