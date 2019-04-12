@@ -81,7 +81,7 @@ if err!=0:
 bwa_command4='samtools view -h sorted.sam > sorted.bam'
 err=os.system(bwa_command4)
 if err!=0:
-    print('Failed to run samtools view)
+    print('Failed to run samtools view')
     exit(-1)
           
           
