@@ -18,7 +18,7 @@ cp.read('run.conf')
 absPath_fastp=cp.get("path","absPath_fastp")
 absPath_seqtk=cp.get("path","absPath_seqtk")
 absPath_bwa=cp.get("path","absPath_bwa")
-absPath_samtools=cp.get("path","absPath_bwa")
+absPath_samtools=cp.get("path","absPath_samtools")
 ref1=cp.get("reference_file","sabin1")
 ref2=cp.get("reference_file","sabin3")
 
