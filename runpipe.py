@@ -16,9 +16,9 @@ args = parser.parse_args()
 cp=ConfigParser.ConfigParser()
 cp.read('run.conf')
 absPath_fastp=cp.get("path","absPath_fastq")
-
-print(absPath_fastp)
-
+absPath_seqtk=cp.get("path","absPath_seqtk")
+ref1=cp.get("reference_file","sabin1")
+ref2=cp.get("reference_file","sabin3")
 
 directory=""
 reads1=""
@@ -28,10 +28,11 @@ points=0
 
 reads1=args.reads1
 reads2=args.reads2
-if argvs.reference==1:
-    ref='./Sabin1'
+if args.reference==1:
+    ref=ref1
 else:
-    ref='./Sabin3'
+    ref=ref2
+print ref
 points=args.points
 pwd=os.getcwd()
 if args.output=="current directory":
