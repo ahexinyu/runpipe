@@ -68,10 +68,20 @@ err=os.system(bwa_command1)
 if err!=0:
     print('Failed to run bwa index')
     exit(-1)
-bwa_command2=absPath_bwa+'mem -t 3 '+ref+' 1.fq 2.fq > mem.sam'
+bwa_command2=absPath_bwa+' bwa mem -t 3 '+ref+' 1.fq 2.fq > mem.sam'
 err=os.system(bwa_command2)
 if err!=0:
     print('Failed to run bwa mem')
+    exit(-1)
+bwa_command3='samtools sort mem.sam>sorted.sam'
+err=os.system(bwa_command3)
+if err!=0:
+    print('Failed to run samtools sort')
+    exit(-1)
+bwa_command4='samtools view -h sorted.sam > sorted.bam'
+err=os.system(bwa_command4)
+if err!=0:
+    print('Failed to run samtools view)
     exit(-1)
 
 
