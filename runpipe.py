@@ -48,14 +48,14 @@ err=os.system(command_load)
 if err!=0:
     print('Failed to load fastp')
     exit(-1)
-fastp_command='fastp -i '+ reads1 +' -o 1.fasp -I '+ reads2+' -O 2.fasp --qualified_quality_phred=15 -p'
+fastp_command=absPath_fastp+'fastp -i '+ reads1 +' -o 1.fasp -I '+ reads2+' -O 2.fasp --qualified_quality_phred=15 -p'
 err =os.system(fastp_command)
 if err!=0:
     print('Failed to run fastp')
     exit(-1)
 
 #########seqtk##########
-seqtk_command1=absPath_seqtk+'seqtk sample -s seed=11 1.fasp 500>1.fq seqtk sample -s seed=11 2.fasp 500>1.fq'
+seqtk_command1=absPath_seqtk+'seqtk sample -s seed=11 1.fasp 500>1.fq seqtk sample -s seed=11 2.fasp 500>2.fq'
 err=os.system(seqtk_command1)
 if err!=0:
     print('Failed to run seqtk command')
@@ -63,10 +63,15 @@ if err!=0:
 
 
 #########bwa############
-bwa_command=absPath_bwa+'bwa index '+ ref
+bwa_command1=absPath_bwa+'bwa index '+ ref
 err=os.system(bwa_command)
 if err!=0:
-    print('Failed to run bwa')
+    print('Failed to run bwa index')
+    exit(-1)
+bwa_command2=absPath_bwa+'mem -t 3 '+ref+' 1.fq 2.fq > mem.sam'
+err=os.system(bwa_command2)
+if err!=0:
+    print('Failed to run bwa mem')
     exit(-1)
 
 
