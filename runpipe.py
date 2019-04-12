@@ -17,6 +17,7 @@ cp=ConfigParser.ConfigParser()
 cp.read('run.conf')
 absPath_fastp=cp.get("path","absPath_fastp")
 absPath_seqtk=cp.get("path","absPath_seqtk")
+absPath_bwa=cp.get("path","absPath_bwa")
 ref1=cp.get("reference_file","sabin1")
 ref2=cp.get("reference_file","sabin3")
 
@@ -50,22 +51,19 @@ if err!=0:
     exit(-1)
 
 #########seqtk##########
-seqtk_command1=absPath_seqtk+'seqtk sample -s seed=11 1.fasp 5000000>1.fq'
+seqtk_command1=absPath_seqtk+'seqtk sample -s seed=11 1.fasp 500>1.fq seqtk sample -s seed=11 2.fasp 500>1.fq''
 err=os.system(seqtk_command1)
 if err!=0:
-    print('Failed to run seqtk command1')
-    exit(-1)
-seqtk_command2=absPath_seqtk+'seqtk sample -s seed=11 2.fasp 5000000>1.fq'
-err=os.system(seqtk_command2)
-if err!=0:
-    print('Failed to run seqtk command2')
+    print('Failed to run seqtk command')
     exit(-1)
 
 
 #########bwa############
-absPath_bwa='~/bigdata/software/bwa/'
-
-
+bwa_command=absPath_bwa+'bwa index '+ ref
+err=os.system(bwa_command)
+if err!=0:
+    print('Failed to run bwa')
+    exit(-1)
 
 
 
