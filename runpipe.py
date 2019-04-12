@@ -5,7 +5,7 @@ import argparse
 parser = argparse.ArgumentParser(description='runPipe.py')
 parser.add_argument('reads1',help="reads file1")
 parser.add_argument('reads2',help="reads file2")
-parser.add_argument('reference',choices=[3,1],help="reference file Sabin1 or Sabin3 ",default=1,dest='ref',type= int)
+parser.add_argument('reference',choices=[3,1],help="reference file Sabin1 or Sabin3 ",dest='ref',type= int)
 parser.add_argument('-s',choices=[0,1],help="Specific points,0 or 1",default=0,dest='points',type= int)
 parser.add_argument('-d',help="Output directory",dest='output',default="current directory")
 args = parser.parse_args()
