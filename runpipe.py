@@ -64,7 +64,7 @@ if err!=0:
 
 #########bwa############
 bwa_command1=absPath_bwa+'bwa index '+ ref
-err=os.system(bwa_command)
+err=os.system(bwa_command1)
 if err!=0:
     print('Failed to run bwa index')
     exit(-1)
