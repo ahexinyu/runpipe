@@ -111,7 +111,7 @@ else:
     if err!=0:
         print('Failed to run lofreq')
         exit(-1)
-    ###分析文件####
+    
 
 #########IGV#####
 IGV_command='sh'+' '+absPath_IGV+'igv.sh'
