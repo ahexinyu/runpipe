@@ -20,7 +20,7 @@ absPath_fastp=cp.get("path","absPath_fastp")
 absPath_seqtk=cp.get("path","absPath_seqtk")
 absPath_bwa=cp.get("path","absPath_bwa")
 absPath_samtools=cp.get("path","absPath_samtools")
-absPath_picard=cp.get("path","abs_picard")
+absPath_picard=cp.get("path","absPath_picard")
 absPath_lofreq=cp.get("path","absPath_lofreq")
 absPath_IGV=cp.get("path","absPath_IGV")
 ref1=cp.get("reference_file","sabin1")
@@ -111,7 +111,7 @@ else:
     if err!=0:
         print('Failed to run lofreq')
         exit(-1)
-    
+
 
 #########IGV#####
 IGV_command='sh'+' '+absPath_IGV+'igv.sh'
