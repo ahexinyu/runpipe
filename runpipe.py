@@ -28,7 +28,7 @@ ref2=cp.get("reference_file","sabin3")
 
 directory=""
 reads1=""
-reads1=""
+reads2=""
 ref=""
 name=""
 points=0
