@@ -93,8 +93,8 @@ picard_command=absPath_picard+'picard MarkDuplicates METRICS_FILE=sorted.metrics
 err=os.system(picard_command)
 if err!=0:
     if err!=0:
-    print('Failed to run picard')
-    exit(-1)
+        print('Failed to run picard')
+        exit(-1)
 
 
 ########lofreq #######
