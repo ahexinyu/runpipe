@@ -70,7 +70,7 @@ err=os.system(bwa_command1)
 if err!=0:
     print('Failed to run bwa index')
     exit(-1)
-bwa_command2=absPath_bwa+'bwa mem -t 16 '+ref+' ~/bigdata/xiefei/data/x000  ~/bigdata/xiefei/data/x001 > mem.sam'
+bwa_command2=absPath_bwa+'bwa mem -t 16 '+ref+' ~/bigdata/xiefei/data/x010  ~/bigdata/xiefei/data/x011 > mem.sam'
 err=os.system(bwa_command2)
 if err!=0:
     print('Failed to run bwa mem')
