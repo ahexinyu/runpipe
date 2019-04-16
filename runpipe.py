@@ -117,7 +117,7 @@ else:
     points_sab3=['472','2034']
     with open(file_address)as lines:
         for line in lines:
-            line = line.strip(‘\n’)
+            line = line.strip('\n')
             if line[1]=='#':
                 out.write(line)
                 continue
@@ -132,6 +132,7 @@ else:
                     out.write(line)
                 else:
                     continue
+
 
 
 
