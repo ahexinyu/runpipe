@@ -39,7 +39,7 @@ if args.reference==1:
     ref=ref1
 else:
     ref=ref2
-print ref 
+print ref
 name=args.output_name
 points=args.points
 pwd=os.getcwd()
@@ -70,7 +70,7 @@ err=os.system(bwa_command1)
 if err!=0:
     print('Failed to run bwa index')
     exit(-1)
-bwa_command2=absPath_bwa+'bwa mem '+ref+' ~/bigdata/xydata/xaa  ~/bigdata/xydata/xab > mem.sam'
+bwa_command2=absPath_bwa+'bwa mem -t 3 '+ref+' 1.fq 2.fq> mem.sam'
 err=os.system(bwa_command2)
 if err!=0:
     print('Failed to run bwa mem')
