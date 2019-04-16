@@ -70,7 +70,7 @@ err=os.system(bwa_command1)
 if err!=0:
     print('Failed to run bwa index')
     exit(-1)
-bwa_command2=absPath_bwa+'bwa mem -t 16 '+ref+' ~/bigdata/xiefei/data/x010  ~/bigdata/xiefei/data/x011 > mem.sam'
+bwa_command2=absPath_bwa+'bwa mem '+ref+' ~/bigdata/xydata/xaa  ~/bigdata/xydata/xab > mem.sam'
 err=os.system(bwa_command2)
 if err!=0:
     print('Failed to run bwa mem')
@@ -100,6 +100,7 @@ if err!=0:
 ########lofreq #######
 lofreq_command1=absPath_lofreq+'lofreq call -f '+ref+' rmseqdup.bam -o ' + directory +'/'+'variants.vcf'
 lofreq_command2=absPath_lofreq+'lofreq call -f '+ref+' rmseqdup.bam -o ' + directory +'/'+ name
+file_address=directory+'/variants.vcf'
 
 if points==0:
     err=os.system(lofreq_command2)
@@ -111,6 +112,7 @@ else:
     if err!=0:
         print('Failed to run lofreq')
         exit(-1)
+   
 
 
 
