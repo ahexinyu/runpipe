@@ -102,6 +102,8 @@ lofreq_command1=absPath_lofreq+'lofreq call -f '+ref+' rmseqdup.bam -o ' + direc
 lofreq_command2=absPath_lofreq+'lofreq call -f '+ref+' rmseqdup.bam -o ' + directory +'/'+ name
 file_address=directory+'/variants.vcf'
 fliter_file=directory+'/'+name
+command_delete='rm -f '+file_address
+os.system(command_delete)
 if points==0:
     err=os.system(lofreq_command2)
     if err!=0:
