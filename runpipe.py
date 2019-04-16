@@ -112,7 +112,25 @@ else:
     if err!=0:
         print('Failed to run lofreq')
         exit(-1)
-
+    out=open(fliter_file,"w")
+    points_sab1=['480 ',' 277 ', '935 ', '2438 ', '2795 ', '2879 ', '6023 ']
+    points_sab3=['472 ','2034 ']
+    with open(file_address)as lines:
+        for line in lines:
+            line = line.strip(‘\n’)
+            if line[1]=='#':
+                continue
+            data=line.split()
+            if args.reference==1:
+                if data[1] in points_sab1:
+                    out.write(line)
+                else:
+                    continue
+            else:
+                if data[1] in points_sab3:
+                    out.write(line)
+                else:
+                    continue
 
 
 
