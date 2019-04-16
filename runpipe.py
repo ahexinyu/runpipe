@@ -39,7 +39,7 @@ if args.reference==1:
     ref=ref1
 else:
     ref=ref2
-print('reference file is',ref)
+print ref 
 name=args.output_name
 points=args.points
 pwd=os.getcwd()
@@ -112,7 +112,7 @@ else:
     if err!=0:
         print('Failed to run lofreq')
         exit(-1)
-   
+
 
 
 
