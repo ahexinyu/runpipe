@@ -1,10 +1,13 @@
-# runpipe
+# runPipe
 
-command:
-    python runpipe.py reads1 reads2 1 configuration_file_path [options -s|options -d]
+Command:
+python runPipe.py  reads1 reads2 config ref [option | option]
 
-    1 respresent reference file sabin1 ,only 1 or 3
-    -s respresent Specific points,0 or 1, default 0 .0 respresent no specific points
-    -d respresent output directory .default current directory.
+Mandatory parameters:
+    reads1 and reads2 are the read files and can be either in fasta or fastq format
+    config is the config file containing paths to the analysis tools and ref
+    ref is the reference file and can be either 1 (for sabin1) or 3 (for sabin3)
 
-    If you want to run runpipe.py successfully,you need to change 'run.conf' file first.write the absolute path of each executable software and absolute path of reference file(SABIN1 and SABIN3 ) in this file.If you don't konw absolute path, use 'pwd'.
+Optional parameters:
+    -s is an option to analyze specific points and can be either 0 (for no; default) or 1 (for yes) 
+    -d is an option to specify the output directory and can be either not specified (default) or specified

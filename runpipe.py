@@ -3,19 +3,19 @@ import argparse
 import ConfigParser
 
 parser = argparse.ArgumentParser(description='runPipe.py')
-parser.add_argument('reads1',help="reads file1")
-parser.add_argument('reads2',help="reads file2")
-parser.add_argument('reference',choices=[1,3],help="reference file Sabin1 or Sabin3 ",type= int)
-parser.add_argument('conf_file_path',help="path of configuration file")
-parser.add_argument('-s',choices=[0,1],help="Specific points,0 or 1",default=0,dest='points',type= int)
-parser.add_argument('-d',help="Output directory",dest='output',default="current directory")
+parser.add_argument('reads1',help="reads file1,the read file can be either in fasta or fastq format")
+parser.add_argument('reads2',help="reads file2,the read file can be either in fasta or fastq format")
+parser.add_argument('conf_file',help="configuration file")
+parser.add_argument('reference',choices=[1,3],help="ref is the reference file and can be either 1 (for sabin1) or 3 (for sabin3) ",type= int)
+parser.add_argument('-s',choices=[0,1],help="-s is an option to analyze specific points and can be either 0 (for no; default) or 1 (for yes) ",default=0,dest='points',type= int)
+parser.add_argument('-d',help=" -d is an option to specify the output directory and can be either not specified (default) or specified",dest='output',default="current directory")
 args = parser.parse_args()
 
 
 
 ######read config file########
 cp=ConfigParser.ConfigParser()
-path_conf=args.conf_file_path+'/run.conf'
+path_conf=args.conf_file
 cp.read(path_conf)
 absPath_fastp=cp.get("path","absPath_fastp")
 absPath_seqtk=cp.get("path","absPath_seqtk")
