@@ -6,7 +6,7 @@ parser = argparse.ArgumentParser(description='runPipe.py')
 parser.add_argument('reads1',help="reads file1")
 parser.add_argument('reads2',help="reads file2")
 parser.add_argument('reference',choices=[1,3],help="reference file Sabin1 or Sabin3 ",type= int)
-parser.add_argument('output_name',help="output file name ")
+parser.add_argument('conf_file_path',help="path of configuration file")
 parser.add_argument('-s',choices=[0,1],help="Specific points,0 or 1",default=0,dest='points',type= int)
 parser.add_argument('-d',help="Output directory",dest='output',default="current directory")
 args = parser.parse_args()
@@ -15,7 +15,8 @@ args = parser.parse_args()
 
 ######read config file########
 cp=ConfigParser.ConfigParser()
-cp.read('run.conf')
+path_conf=args.conf_file_path+'/run.conf'
+cp.read(path_conf)
 absPath_fastp=cp.get("path","absPath_fastp")
 absPath_seqtk=cp.get("path","absPath_seqtk")
 absPath_bwa=cp.get("path","absPath_bwa")
@@ -30,7 +31,6 @@ directory=""
 reads1=""
 reads2=""
 ref=""
-name=""
 points=0
 
 reads1=args.reads1
@@ -40,7 +40,6 @@ if args.reference==1:
 else:
     ref=ref2
 print ref
-name=args.output_name
 points=args.points
 pwd=os.getcwd()
 if args.output=="current directory":
@@ -57,7 +56,7 @@ if err!=0:
     exit(-1)
 
 #########seqtk##########
-seqtk_command1=absPath_seqtk+'seqtk sample -s seed=11 1.fasp  500>1.fq seqtk sample -s seed=11 2.fasp 500>2.fq'
+seqtk_command1=absPath_seqtk+'seqtk sample -s seed=11 1.fasp  5000000>1.fq seqtk sample -s seed=11 2.fasp 5000000>2.fq'
 err=os.system(seqtk_command1)
 if err!=0:
     print('Failed to run seqtk command')
@@ -70,7 +69,7 @@ err=os.system(bwa_command1)
 if err!=0:
     print('Failed to run bwa index')
     exit(-1)
-bwa_command2=absPath_bwa+'bwa mem -t 16 '+ref+' 1.fasp 2.fasp> mem.sam'
+bwa_command2=absPath_bwa+'bwa mem -t 3 '+ref+' 1.fasp 2.fasp> mem.sam'
 err=os.system(bwa_command2)
 if err!=0:
     print('Failed to run bwa mem')
@@ -99,25 +98,26 @@ if err!=0:
 
 ########lofreq #######
 lofreq_command1=absPath_lofreq+'lofreq call -f '+ref+' rmseqdup.bam -o ' + directory +'/'+'variants.vcf'
-lofreq_command2=absPath_lofreq+'lofreq call -f '+ref+' rmseqdup.bam -o ' + directory +'/'+ name
+lofreq_command2=absPath_lofreq+'lofreq call -f '+ref+' rmseqdup.bam -o trans.vcf'
 file_address=directory+'/variants.vcf'
-fliter_file=directory+'/'+name
 command_delete='rm -f '+file_address
-os.system(command_delete)
+command_delete2='rm -f trans.vcf'
+os.system(command_delete2)
 if points==0:
-    err=os.system(lofreq_command2)
-    if err!=0:
-        print('Failed to run lofreq')
-        exit(-1)
-else:
+    os.system(command_delete)
     err=os.system(lofreq_command1)
     if err!=0:
         print('Failed to run lofreq')
         exit(-1)
-    out=open(fliter_file,"w")
-    points_sab1=['480','277', '935', '2438', '2795', '2879', '6023']
+else:
+    err=os.system(lofreq_command2)
+    if err!=0:
+        print('Failed to run lofreq')
+        exit(-1)
+    out=open(file_address,"w")
+    points_sab1=['480','525', '935', '2438', '2795', '2879', '6023']
     points_sab3=['472','2034']
-    with open(file_address)as lines:
+    with open("trans.vcf")as lines:
         for line in lines:
             line = line.strip('\n')
             if line[1]=='#':
