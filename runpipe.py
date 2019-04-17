@@ -69,7 +69,7 @@ err=os.system(bwa_command1)
 if err!=0:
     print('Failed to run bwa index')
     exit(-1)
-bwa_command2=absPath_bwa+'bwa mem -t 3 '+ref+' 1.fasp 2.fsap> mem.sam'
+bwa_command2=absPath_bwa+'bwa mem -t 3 '+ref+' 1.fasp 2.fasp> mem.sam'
 err=os.system(bwa_command2)
 if err!=0:
     print('Failed to run bwa mem')
