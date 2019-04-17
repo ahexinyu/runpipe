@@ -1,4 +1,4 @@
-# runPipe
+# runPipe, by Xinyu He, School of Software Engineering, Beijing Jiaotong University (contact: 17121708@bjtu.edu.cn)
 
 Command:
 python runPipe.py  reads1 reads2 config ref [option | option]
