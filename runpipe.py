@@ -56,7 +56,7 @@ if err!=0:
     exit(-1)
 
 #########seqtk##########
-seqtk_command1=absPath_seqtk+'seqtk sample -s seed=11 1.fasp  500>1.fq seqtk sample -s seed=11 2.fasp 500>2.fq'
+seqtk_command1=absPath_seqtk+'seqtk sample -s seed=11 1.fasp  5000000>1.fq seqtk sample -s seed=11 2.fasp 5000000>2.fq'
 err=os.system(seqtk_command1)
 if err!=0:
     print('Failed to run seqtk command')
@@ -69,7 +69,7 @@ err=os.system(bwa_command1)
 if err!=0:
     print('Failed to run bwa index')
     exit(-1)
-bwa_command2=absPath_bwa+'bwa mem -t 3 '+ref+' 1.fasp 2.fasp> mem.sam'
+bwa_command2=absPath_bwa+'bwa mem -t 3 '+ref+' 1.fq 2.fq> mem.sam'
 err=os.system(bwa_command2)
 if err!=0:
     print('Failed to run bwa mem')
