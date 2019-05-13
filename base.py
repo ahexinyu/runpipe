@@ -6,5 +6,6 @@ with open(sys.argv[1])as lines:
         line=line.strip('\n')
         if line[0]=='>':
             continue
-        base=base+len(line)
+        else:
+            base=base+len(line)
 print('base is',base)
