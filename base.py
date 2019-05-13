@@ -4,6 +4,7 @@ base=0
 with open(sys.argv[1])as lines:
     for line in lines:
         line=line.strip('\n')
-        data=line.split()
-        base=base+len(data[1])
+        if line[0]=='>':
+            continue
+        base=base+len(line)
 print('base is',base)
