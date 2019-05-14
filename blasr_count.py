@@ -12,6 +12,6 @@ with open(sys.argv[1])as lines:
         end=int(data[3])
         base=end-start
         totalbase=totalbase+base
-        M_base=int(data[11])
+        M_base=M_base+int(data[11])
 print('M_base is',M_base)
 print('total_base is',totalbase)
