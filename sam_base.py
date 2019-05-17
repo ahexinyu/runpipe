@@ -60,7 +60,7 @@ with open(sys.argv[1])as lines:
                     name=""
                     flag=1
 print("M is",total_M);
-print("total_base is"，total_base)
+print("total_base is",total_base)
 
 
 
