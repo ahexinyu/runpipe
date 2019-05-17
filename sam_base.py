@@ -33,32 +33,32 @@ with open(sys.argv[1])as lines:
                 num=0
             else:
                 num=num*10+int(num)
-         if name==prename:
-             if abs(start_location-pre_station)<1000:
-                 if temp_count<pre_total:
-                     continue
-                 else:
+            if name==prename:
+                if abs(start_location-pre_station)<1000:
+                    if temp_count<pre_total:
+                        continue
+                    else:
+                        pre_M=temp_M
+                        pre_total=temp_count
+                else:
+                    total_M+=temp_M
+                    total_base=temp_count
+            else:
+                if flag==0:
                     pre_M=temp_M
                     pre_total=temp_count
-             else:
-                 total_M+=temp_M
-                 total_base=temp_count
-         else:
-             if flag==0:
-                pre_M=temp_M
-                pre_total=temp_count
-                flag=1
-                prename=name
-                name=""
-                continue
-             else:
-                total_M+=temp_M
-                total_base=temp_count
-                pre_M=temp_M
-                pre_total=temp_count
-                prename=name
-                name=""
-                flag=1
+                    flag=1
+                    prename=name
+                    name=""
+                    continue
+                else:
+                    total_M+=temp_M
+                    total_base=temp_count
+                    pre_M=temp_M
+                    pre_total=temp_count
+                    prename=name
+                    name=""
+                    flag=1
 print("M is",total_M);
 print("total_base is"，total_base)
 
