@@ -32,7 +32,7 @@ with open(sys.argv[1])as lines:
                     temp_M+=num
                 num=0
             else:
-                num=num*10+int(num)
+                num=num*10+int(ch)
             if prename==name:
                 if abs(start_location-pre_station)<1000:
                     if temp_count<pre_total:
