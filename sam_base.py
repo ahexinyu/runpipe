@@ -42,7 +42,7 @@ with open(sys.argv[1])as lines:
                         pre_total=temp_count
                 else:
                     total_M+=temp_M
-                    total_base=temp_count
+                    total_base+=temp_count
             else:
                 if flag==0:
                     pre_M=temp_M
@@ -53,7 +53,7 @@ with open(sys.argv[1])as lines:
                     continue
                 else:
                     total_M+=temp_M
-                    total_base=temp_count
+                    total_base+=temp_count
                     pre_M=temp_M
                     pre_total=temp_count
                     prename=name
