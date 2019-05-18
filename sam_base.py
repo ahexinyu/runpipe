@@ -15,7 +15,7 @@ with open(sys.argv[1])as lines:
         if line[0]=='@':
             continue
         data=line.split()
-        num=0.0
+        num=0
         start_location=0
         name=data[0]
         cigar=data[5]
@@ -33,7 +33,7 @@ with open(sys.argv[1])as lines:
                 num=0
             else:
                 num=num*10+int(num)
-            if name==prename:
+            if prename==name:
                 if abs(start_location-pre_station)<1000:
                     if temp_count<pre_total:
                         continue
