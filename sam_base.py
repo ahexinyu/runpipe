@@ -9,7 +9,7 @@ with open(sys.argv[1])as lines:
     pre_station=0
     pre_total=0
     total_base=0
-    H_count=0
+    flag=0
     for line in lines:
         line=line.strip('\n')
         if line[0]=='@':
@@ -21,7 +21,6 @@ with open(sys.argv[1])as lines:
         cigar=data[5]
         temp_M=0
         temp_count=0
-        flag=0
         for ch in cigar:
             if ch>='A' and ch<='Z':
                 if ch=='H':
@@ -43,6 +42,7 @@ with open(sys.argv[1])as lines:
                 else:
                     total_M+=temp_M
                     total_base+=temp_count
+                    continue
             else:
                 if flag==0:
                     pre_M=temp_M
