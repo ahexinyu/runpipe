@@ -52,8 +52,8 @@ with open(sys.argv[1])as lines:
                     name=""
                     continue
                 else:
-                    total_M+=temp_M
-                    total_base+=temp_count
+                    total_M+=pre_M
+                    total_base+=pre_total
                     pre_M=temp_M
                     pre_total=temp_count
                     prename=name
