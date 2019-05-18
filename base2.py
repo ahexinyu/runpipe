@@ -34,17 +34,11 @@ with open(sys.argv[1])as lines:
             else:
                 num=num*10+int(ch)
             if prename==name:
-                if abs(start_location-pre_station)<1000:
-                    if temp_count<pre_total:
-                        continue
-                    else:
-                        pre_M=temp_M
-                        pre_total=temp_count
-                        pre_station=start_location
-                else:
-                    total_M+=temp_M
-                    total_base+=temp_count
+                if temp_count<pre_total:
                     continue
+                else:
+                    pre_M=temp_M
+                    pre_total=temp_count
             else:
                 if flag==0:
                     pre_M=temp_M
@@ -65,10 +59,3 @@ with open(sys.argv[1])as lines:
                     flag=1
 print("M is",total_M);
 print("total_base is",total_base)
-
-
-
-
-
-
-
