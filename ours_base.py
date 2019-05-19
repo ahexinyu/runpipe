@@ -13,7 +13,6 @@ with open(sys.argv[1])as lines:
         temp_base=0
         temp_total=0
         name=data[0]
-        temp_len=end-start
         if len(data)<10:
             continue
         if data[5].isdigit()==False or data[4].isdigit()==False:
