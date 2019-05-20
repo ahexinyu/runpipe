@@ -17,6 +17,7 @@ with open(sys.argv[1])as lines:
             print("error is",data[0])
             continue
         if data[5].isdigit()==False or data[4].isdigit()==False:
+            print("error  isdigit is",data[0])
             continue
         temp_total=int(data[5])-int(data[4])
         if  name==prename:
