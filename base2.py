@@ -22,6 +22,8 @@ with open(sys.argv[1])as lines:
         temp_M=0
         start_location=0
         temp_count=0
+        if cigar.find('*')>=0:
+                continue
         for ch in cigar:
             if ch>='A' and ch<='Z':
                 if ch=='H':
