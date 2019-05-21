@@ -28,7 +28,7 @@ with open(sys.argv[1])as lines:
             if ch>='A' and ch<='Z':
                 if ch=='H':
                     start_location=num
-                if ch=='M' or ch=='S'or ch=='I':
+                if ch=='M'or ch=='I':
                     temp_count+=num
                 if ch=='M':
                     temp_M+=num
