@@ -6,7 +6,7 @@ with open(sys.argv[1])as lines:
     for line in lines:
         if line[0]=='>':
             data=line.split()
-            data[0]=data.strip('>')
+            data[0]=data[0].strip('>')
             name=data[0]
         else:
             count+=1
