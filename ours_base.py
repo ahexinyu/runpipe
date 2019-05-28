@@ -14,10 +14,10 @@ with open(sys.argv[1])as lines:
         temp_total=0
         name=data[0]
         if len(data)<10:
-            print("error is",data[0])
+            print("error is",line)
             continue
         if data[5].isdigit()==False or data[4].isdigit()==False:
-            print("error  isdigit is",data[0])
+            print("error  isdigit is",line)
             continue
         temp_total=int(data[5])-int(data[4])
         if  name==prename:
