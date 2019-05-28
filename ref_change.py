@@ -4,6 +4,7 @@ out=open("/rhome/xyhe/bigdata/dataxy/temp_res/ref.yeast","w")
 with open(sys.argv[1])as lines:
     count=0
     flag=0
+    length=0
     prename=""
     for line in lines:
         if line[0]=='>':
