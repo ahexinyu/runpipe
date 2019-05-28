@@ -1,8 +1,9 @@
 #!/usr/bin/python
 import sys
-out=open("/rhome/xyhe/bigdata/dataxy/temp_res/ref.ecoli","w")
+out=open("/rhome/xyhe/bigdata/dataxy/temp_res/ref.yeast","w")
 with open(sys.argv[1])as lines:
     count=0
+    flag=0
     for line in lines:
         if line[0]=='>':
             data=line.split()
