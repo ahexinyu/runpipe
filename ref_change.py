@@ -11,4 +11,4 @@ with open(sys.argv[1])as lines:
         else:
             count+=1
             length=len(line)
-            out.write(str(count)+' '+name+' '+str(length))
+            out.write(str(count)+' '+name+' '+str(length)+'\n')
