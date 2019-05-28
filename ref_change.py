@@ -10,14 +10,12 @@ with open(sys.argv[1])as lines:
             data=line.split()
             data[0]=data[0].strip('>')
             if flag==0:
-                count+=1
-                flag=1
                 prename=data[0]
-            else:
-                out.write(str(count)+' '+prename+' '+str(length)+'\n')
+                continue
+            out.write(str(count)+' '+prename+' '+str(length)+'\n')
             prename=data[0]
             length=0
-            count+=1
+            count=count+1
         else:
             length+=len(line)
-        out.write(str(count)+' '+prename+' '+str(length)+'\n')
+    out.write(str(count+1)+' '+data[0]+' '+str(length)+'\n')
