@@ -1,6 +1,6 @@
 #!/usr/bin/python
 import sys
-out=open("~/bigdata/dataxy/temp_res/ref.ecoli","w")
+out=open("/rhome/xyhe/bigdata/dataxy/temp_res/ref.ecoli","w")
 with open(sys.argv[1])as lines:
     count=0
     for line in lines:
