@@ -70,4 +70,4 @@ with open(sys.argv[1])as lines:
                 end=start_location+temp_M+temp_D
                 name=""
                 flag=1
-                out.write(prerefname+' '+pre_station+' '+end+'\n')
+                out.write(prerefname+' '+str(pre_station)+' '+str(end)+'\n')
