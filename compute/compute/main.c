@@ -86,9 +86,15 @@ int open_SAMfile(const char *reference_file,const char *file) {
         coverage[j]=real_length/ref_data[j].length;
         real_length=0.0;
     }
+    float total=0.0;
     for( i=0;i<count2;i++){
-        printf("coverage is %f\n", coverage[i]);
+        total=total+coverage[i];
+        //printf("coverage is %f\n", coverage[i]);
     }
+    float qqq;
+    qqq=total/count2;
+    printf("%f",qqq);
+
     free(fq);
     fclose(fp2);
     fclose(fp);
