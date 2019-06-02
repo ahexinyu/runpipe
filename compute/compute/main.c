@@ -82,7 +82,7 @@ int open_SAMfile(const char *reference_file,const char *file) {
                 real_length=real_length+1;
             }
         }
-        printf("length is %f\n",real_length);
+        //printf("length is %f\n",real_length);
         coverage[j]=real_length/ref_data[j].length;
         real_length=0.0;
     }
