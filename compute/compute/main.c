@@ -98,7 +98,7 @@ int open_SAMfile(const char *reference_file,const char *file) {
 
 int main(int argc, const char * argv[]) {
     char path[200]="/rhome/xyhe/bigdata/dataxy/temp_res/ecoli";//三个参数的
-    char path2[200]="/rhome/xyhe/bigdata/dataxy/temp_res/";
+    char path2[200]="/rhome/xyhe/bigdata/dataxy/temp_res/ref.yeast";
     open_SAMfile(path,path2);
     return 0;
 }
