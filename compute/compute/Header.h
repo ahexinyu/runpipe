@@ -18,6 +18,7 @@ typedef struct {
     int flag;
 }reference_;
 typedef struct{
+    int num;
     char *name;
     int length;
 
