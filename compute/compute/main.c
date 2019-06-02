@@ -26,7 +26,7 @@ int open_SAMfile(const char *reference_file,const char *file) {
     fq=(char *)malloc(100000000);
     setvbuf(fp, fq, _IOFBF, 100000000);
     point=(reference_ *)malloc(100*sizeof(reference_));
-    str=(char *)malloc(10000);
+    str=(char *)malloc(100000);
     while((flag=fscanf(fp,"%s\t%d\t%d\n",str,&start,&end))!=EOF){
         point[count].name=str;
         name_length=strlen(str);
@@ -37,7 +37,7 @@ int open_SAMfile(const char *reference_file,const char *file) {
         count++;
     }
     printf("count is %d\n",count);
-    name=(char*)malloc(10000);
+    name=(char*)malloc(100000);
     ref_data=(ref2 *)malloc(1000000*sizeof(ref2));
     while((flag2=fscanf(fp2, "%s\t%d\n",&num,name,&length2))!=EOF){
         ref_data[count2].name=name;
@@ -56,8 +56,8 @@ int open_SAMfile(const char *reference_file,const char *file) {
     }
     database=(char **)malloc(count2*sizeof(char *));
     for( i=0;i<count2;i++){
-        database[i]=(int *)malloc(100000*sizeof(int));
-        for( j=0;j<100000;j++){
+        database[i]=(int *)malloc(10000000*sizeof(int));
+        for( j=0;j<10000000;j++){
             database[i][j]=0;
         }
     }//初始化databse
@@ -78,7 +78,7 @@ int open_SAMfile(const char *reference_file,const char *file) {
     coverage=(float *)malloc(count2*sizeof(float));
     for( j=0;j<count2;j++){
         for( k=0;k<ref_data[j].length;k++){
-            if(database[0][k]==1){
+            if(database[j][k]==1){
                 real_length=real_length+1;
             }
         }
