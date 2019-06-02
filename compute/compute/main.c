@@ -1,0 +1,102 @@
+//
+//  main.c
+//  compute
+//
+//  Created by 何欣雨 on 2019/5/28.
+//  Copyright © 2019年 tony. All rights reserved.
+//
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <assert.h>
+#include "Header.h"
+#include <string.h>
+static reference_ *point;
+static ref2 *ref_data;
+static int count=0;
+static int count2=0;
+int open_SAMfile(const char *reference_file,const char *file) {
+    FILE *fp;char *fq;char *str;int start=0,end=0;int flag;
+    FILE *fp2;int flag2;int length2;
+    float *coverage;
+    char **database;
+    fp2=fopen(file,"r");
+    char *name;int name_length;int name_length2;
+    fp=fopen(reference_file,"r");
+    fq=(char *)malloc(100000000);
+    setvbuf(fp, fq, _IOFBF, 100000000);
+    point=(reference_ *)malloc(100*sizeof(reference_));
+    str=(char *)malloc(10000);
+    while((flag=fscanf(fp,"%s\t%d\t%d\n",str,&start,&end))!=EOF){
+        point[count].name=str;
+        name_length=strlen(str);
+        point[count].start=start;
+        point[count].end=end;
+        point[count].flag=0;
+        str=str+name_length+1;
+        count++;
+    }
+    printf("count is %d\n",count);
+    name=(char*)malloc(10000);
+    ref_data=(ref2 *)malloc(1000000*sizeof(ref2));
+    while((flag2=fscanf(fp2, "%s\t%d\n",name,&length2))!=EOF){
+        ref_data[count2].name=name;
+        name_length2=strlen(name);
+        ref_data[count2].length=length2;
+        name=name+name_length2+1;
+        count2++;
+    }
+    for(int i=0;i<count;i++){
+       for(int j=0;j<count2;j++){
+            if(strcmp(point[i].name,ref_data[j].name)==0){
+                point[i].length=ref_data[j].length;
+            }
+        }
+    }
+    database=(char **)malloc(count2*sizeof(char *));
+    for(int i=0;i<count2;i++){
+        database[i]=(int *)malloc(100000*sizeof(int));
+        for(int j=0;j<100000;j++){
+            database[i][j]=0;
+        }
+    }//初始化databse
+    for(int i=0;i<count2;i++){
+        database[i]=ref_data[i].name;
+    }
+    for(int i=0;i<count;i++){
+        for(int j=0;j<count2;j++){
+            if(strcmp(point[i].name,database[j])==0){
+                for(int k=point[i].start;k<point[i].end;k++){
+                    database[j][k]=1;
+            }
+            }
+        }
+    }
+    float real_length=0.0;
+    coverage=(float *)malloc(count2*sizeof(float));
+    for(int j=0;j<count2;j++){
+        for(int k=0;k<ref_data[j].length;k++){
+            if(database[0][k]==1){
+                real_length=real_length+1;
+            }
+        }
+        printf("length is %f\n",real_length);
+        coverage[j]=real_length/ref_data[j].length;
+        real_length=0.0;
+    }
+    for(int i=0;i<count2;i++){
+        printf("coverage is %f\n", coverage[i]);
+    }
+    free(fq);
+    fclose(fp2);
+    fclose(fp);
+    return 0;
+
+}
+
+int main(int argc, const char * argv[]) {
+    char path[200]="/Users/hexinyu/Desktop/fastq.txt";
+    char path2[200]="/Users/hexinyu/Desktop/ref.txt";
+    open_SAMfile(path,path2);
+    return 0;
+}
