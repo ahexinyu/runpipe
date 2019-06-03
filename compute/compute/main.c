@@ -25,7 +25,7 @@ int open_SAMfile(const char *reference_file,const char *file) {
     fp=fopen(reference_file,"r");
     fq=(char *)malloc(100000000);
     setvbuf(fp, fq, _IOFBF, 100000000);
-    point=(reference_ *)malloc(1000000*sizeof(reference_));
+    point=(reference_ *)malloc(10000000*sizeof(reference_));
     str=(char *)malloc(10000000);
     while((flag=fscanf(fp,"%s\t%d\t%d\n",str,&start,&end))!=EOF){
         point[count].name=str;
