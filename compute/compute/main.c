@@ -55,8 +55,8 @@ int open_SAMfile(const char *reference_file,const char *file) {
             }
         }
     }
-    database=(int *)malloc(1000000*sizeof(int));
-    for (i=0;i<1000000;i++){
+    database=(int *)malloc(10000000*sizeof(int));
+    for (i=0;i<10000000;i++){
         database[i]=0;
     }
  
@@ -69,12 +69,12 @@ int open_SAMfile(const char *reference_file,const char *file) {
                 }
             }
         }
-        for(k=0;k<1000000;k++){
+        for(k=0;k<10000000;k++){
             if(database[k]==1){
                 real_length++;
             }
         }
-        for(k=0;k<1000000;k++){
+        for(k=0;k<10000000;k++){
             database[k]=0;
         }
     }
