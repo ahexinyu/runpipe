@@ -20,9 +20,6 @@ with open(sys.argv[1])as lines:
         temp_base=0
         temp_total=0
         name=data[0]
-        ref_name=data[1]
-        ref_start=int(data[7])
-        ref_end=int(data[8])
         if len(data)<10:
             print("error is",line)
             continue
@@ -30,6 +27,9 @@ with open(sys.argv[1])as lines:
             print("error  isdigit is",line)
             continue
         temp_total=int(data[5])-int(data[4])
+        ref_name=data[1]
+        ref_start=int(data[7])
+        ref_end=int(data[8])
         if  name==prename:
             if temp_total<pre_base:
                 continue
