@@ -1,7 +1,7 @@
 #!/usr/bin/python
 import sys
 basecount=0
-out=open("/rhome/xyhe/bigdata/dataxy/temp_res/ours.yeast","w")
+out=open("/rhome/xyhe/bigdata/dataxy/temp_res/ours.ath","w")
 with open(sys.argv[1])as lines:
     pre_base=0
     total_base=0
