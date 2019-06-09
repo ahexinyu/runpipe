@@ -25,7 +25,7 @@ if _name_=='_main_':
     data2=file_to_matrix(filename2)
     [rows1,cols1]=data1.shape
     [rows2,cols2]=data2.shape
-    for i in range(rows1)
+    for i in range(rows1):
         data=data[i].split()
         ref_length=data[2]
         total_length+=ref_length
