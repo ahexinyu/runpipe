@@ -16,7 +16,7 @@ def file_to_matrix(filename1):
     content=file.readlines()
     rows=len(content)
     datamat=np.zeros((rows,3))
-    datamat=datamat.astype(np.string)
+    datamat=datamat.astype('str')
     row=0
     for i in range(rows):
         content[i]=content[i].strip().split('\t')
