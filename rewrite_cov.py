@@ -8,15 +8,20 @@ filename1='/rhome/xyhe/bigdata/dataxy/temp_res/ref.ecoli'
 filename2='/rhome/xyhe/bigdata/dataxy/temp_res/ecoli'
 
 def file_to_matrix(filename1):
-    file=open(filename1)
-    lines=file.readlines()
-    rows=len(lines)
+    try:
+        file=open(filename1,'r')
+    except IOError:
+        error=[]
+        return error
+    content=file.readlines()
+    rows=len(content)
     datamat=np.zeros((rows,3))
     row=0
-    for line in lines:
-        line=line.strip.split('\t')
-        datamat[row,:]=line[:]
+    for i in range(rows):
+        content[i]=content[i].strip().split('\t')
+        datamat[row,:]=content[i][:]
         row+=1
+    file.close()
     return datamat
 
 if __name__=='__main__':
