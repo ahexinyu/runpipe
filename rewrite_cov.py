@@ -16,6 +16,7 @@ def file_to_matrix(filename1):
     content=file.readlines()
     rows=len(content)
     datamat=np.zeros((rows,3))
+    datamat=datamat.astype(np.string)
     row=0
     for i in range(rows):
         content[i]=content[i].strip().split('\t')
@@ -33,16 +34,16 @@ if __name__=='__main__':
     [rows2,cols2]=data2.shape
     for i in range(rows1):
         data=data[i].split()
-        ref_length=data[2]
+        ref_length=int(data[2])
         total_length+=ref_length
     print('total_length is',total_length)
     for i in range(rows1):
         for j in range(rows2):
             matrix=[0]*10000000
             row_data1=data[i].split()
-            name=row_data1[2]
+            name=int(row_data1[2])
             row_data2=data2[j].split()
-            name2=row_data2[2]
+            name2=int(row_data2[2])
             if name==name2:
                 for k in range(10000000):
                     matrix[k]=1
