@@ -2,6 +2,7 @@ import re
 import linecache
 import numpy as np
 import os
+import sys
 
 filename1='/rhome/xyhe/bigdata/dataxy/temp_res/ref.ecoli'
 filename2='/rhome/xyhe/bigdata/dataxy/temp_res/ecoli'
@@ -13,8 +14,8 @@ def file_to_matrix(filename1):
     datamat=np.zeros((rows,3))
     row=0
     for line in lines:
-        line=line.strip.split()
-        datamat[roe,:]=line[:]
+        line=line.strip.split('\t')
+        datamat[row,:]=line[:]
         row+=1
     return datamat
 
