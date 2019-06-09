@@ -32,7 +32,7 @@ if __name__=='__main__':
     data2=file_to_matrix(filename2)
     [rows1,cols1]=data1.shape
     [rows2,cols2]=data2.shape
-    print(data1[2][2])
+    print(data1[0][2])
     for i in range(rows1):
         data=data1[i][2]
         ref_length=int(data)
