@@ -46,7 +46,7 @@ if __name__=='__main__':
     for i in range(rows1):
         for j in range(rows2):
             matrix=[0]*10000000
-            row_data1=data[i][1]
+            row_data1=data1[i][1]
             name=row_data1
             row_data2=data2[j][0]
             name2=row_data2
