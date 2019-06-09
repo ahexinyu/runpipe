@@ -18,7 +18,7 @@ def file_to_matrix(filename1):
         row+=1
     return datamat
 
-if _name_=='_main_':
+if __name__=='__main__':
     total_length=0
     total_map_length=0
     data1=file_to_matrix(filename1)
