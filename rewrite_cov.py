@@ -33,19 +33,21 @@ if __name__=='__main__':
     [rows1,cols1]=data1.shape
     [rows2,cols2]=data2.shape
     for i in range(rows1):
-        data=data1[i]
-        ref_length=int(data[2])
+        data=data1[i][2]
+        ref_length=int(data)
         total_length+=ref_length
     print('total_length is',total_length)
     for i in range(rows1):
         for j in range(rows2):
             matrix=[0]*10000000
-            row_data1=data[i]
-            name=int(row_data1[2])
-            row_data2=data2[j]
-            name2=int(row_data2[2])
+            row_data1=data[i][1]
+            name=int(row_data1)
+            row_data2=data2[j][0]
+            name2=int(row_data2)
+            start=int(data2[j][1])
+            end=int(data2[j][2])
             if name==name2:
-                for k in range(10000000):
+                for k in range(start,end):
                     matrix[k]=1
         for k in range(10000000):
             if matrix[k]==1:
