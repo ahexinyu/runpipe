@@ -33,8 +33,8 @@ def get_row(filename):
 if __name__=='__main__':
     total_length=0
     total_map_length=0
-    data1=np.array(file_to_matrix(filename1))
-    data2=np.array(file_to_matrix(filename2))
+    data1=file_to_matrix(filename1)
+    data2=file_to_matrix(filename2)
     rows1=get_row(filename1)
     rows2=get_row(filename2)
     print(data1[0][2])
