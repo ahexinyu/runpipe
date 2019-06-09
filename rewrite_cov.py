@@ -13,17 +13,13 @@ def file_to_matrix(filename1):
     except IOError:
         error=[]
         return error
-    content=file.readlines()
-    rows=len(content)
-    datamat=np.zeros((rows,3))
-    datamat=datamat.astype('str')
-    row=0
-    for i in range(rows):
-        content[i]=content[i].strip().split('\t')
-        datamat[row,:]=content[i][:]
-        row+=1
+    list=file.readlines()
+    lists=[]
+    for fields in list:
+        fields=fields.strip()
+    lists.append(fields)
     file.close()
-    return datamat
+    return lists
 
 if __name__=='__main__':
     total_length=0
