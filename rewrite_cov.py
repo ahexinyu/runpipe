@@ -32,6 +32,7 @@ if __name__=='__main__':
     data2=file_to_matrix(filename2)
     [rows1,cols1]=data1.shape
     [rows2,cols2]=data2.shape
+    print(data[2][2])
     for i in range(rows1):
         data=data1[i][2]
         ref_length=int(data)
@@ -41,9 +42,9 @@ if __name__=='__main__':
         for j in range(rows2):
             matrix=[0]*10000000
             row_data1=data[i][1]
-            name=int(row_data1)
+            name=row_data1
             row_data2=data2[j][0]
-            name2=int(row_data2)
+            name2=row_data2
             start=int(data2[j][1])
             end=int(data2[j][2])
             if name==name2:
