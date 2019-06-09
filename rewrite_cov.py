@@ -3,8 +3,8 @@ import linecache
 import os
 import sys
 
-filename1='/rhome/xyhe/bigdata/dataxy/temp_res/ref.ecoli'
-filename2='/rhome/xyhe/bigdata/dataxy/temp_res/ecoli'
+filename1='/rhome/xyhe/bigdata/dataxy/temp_res/ref.yeast'
+filename2='/rhome/xyhe/bigdata/dataxy/temp_res/mecat.yeast'
 
 def file_to_matrix(filename1):
     try:
