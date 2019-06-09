@@ -20,17 +20,25 @@ def file_to_matrix(filename1):
         lists.append(fields)
     file.close()
     return lists
-
+def get_row(filename):
+    try:
+        file=open(filename1,'r')
+    except IOError:
+        error=[]
+        return error
+    content=file.readlines()
+    row=len(content)
+    file.close()
+    return row
 if __name__=='__main__':
     total_length=0
     total_map_length=0
-    
     data1=np.array(file_to_matrix(filename1))
     data2=np.array(file_to_matrix(filename2))
-    [rows1,cols1]=data1.shape
-    [rows2,cols2]=data2.shape
+    rows1=get_row(filename1)
+    rows2=get_row(filename2)
     print(data1[0][2])
-    for i in range(rows1):
+    for i in range(rows1-1):
         data=data1[i][2]
         ref_length=int(data)
         total_length+=ref_length
