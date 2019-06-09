@@ -13,7 +13,7 @@ def file_to_matrix(filename1):
     datamat=np.zeros((rows,3))
     row=0
     for line in lines:
-        line=line.strip.split('\t')
+        line=line.strip.split()
         datamat[roe,:]=line[:]
         row+=1
     return datamat
