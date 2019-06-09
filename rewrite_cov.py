@@ -17,7 +17,7 @@ def file_to_matrix(filename1):
     lists=[]
     for fields in list:
         fields=fields.strip()
-    lists.append(fields)
+        lists.append(fields)
     file.close()
     return lists
 
