@@ -41,7 +41,7 @@ if __name__=='__main__':
         ref_length=int(data[2])
         total_length+=ref_length
     print('total_length is',total_length)
-    matrix=[0]*10000000
+    matrix=[0]*1000000000
     for i in range(rows1):
         for j in range(rows2):
             row_data1=data1[i].split()
@@ -53,13 +53,12 @@ if __name__=='__main__':
             if name==name2:
                 for k in range(start,end):
                     matrix[k]=1
-        for z in range(10000000):
+        for z in range(1000000000):
             if matrix[z]==1:
                 length+=1
         total_map_length+=length
         length=0
-        print(matrix[800])
-        for k in range(10000000):
+        for k in range(1000000000):
             matrix[k]=0
     print('total_map_length is',total_map_length)
 
