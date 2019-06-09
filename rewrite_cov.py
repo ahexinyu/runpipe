@@ -24,8 +24,9 @@ def file_to_matrix(filename1):
 if __name__=='__main__':
     total_length=0
     total_map_length=0
-    data1=file_to_matrix(filename1)
-    data2=file_to_matrix(filename2)
+    
+    data1=np.array(file_to_matrix(filename1))
+    data2=np.array(file_to_matrix(filename2))
     [rows1,cols1]=data1.shape
     [rows2,cols2]=data2.shape
     print(data1[0][2])
