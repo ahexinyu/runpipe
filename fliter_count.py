@@ -39,7 +39,7 @@ with open(sys.argv[1])as lines:
                 num=0
             else:
                 num=num*10+int(ch)
-        if temp_count<500:
+        if temp_count<800:
             continue
         if prename==name:
             if temp_count<pre_total:
