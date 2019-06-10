@@ -4,7 +4,7 @@ import os
 import sys
 
 filename1='/rhome/xyhe/bigdata/dataxy/temp_res/ref.yeast'
-filename2='/rhome/xyhe/bigdata/dataxy/temp_res/blasr.yeast'
+filename2='/rhome/xyhe/bigdata/dataxy/temp_res/bwa.yeast'
 
 def file_to_matrix(filename1):
     try:
@@ -42,6 +42,7 @@ if __name__=='__main__':
         total_length+=ref_length
     print('total_length is',total_length)
     matrix=[0]*100000000
+
     for i in range(rows1):
         for j in range(rows2):
             row_data1=data1[i].split()
