@@ -4,7 +4,7 @@ import os
 import sys
 
 filename1='/rhome/xyhe/bigdata/dataxy/temp_res/ref.ecoli'
-filename2='/rhome/xyhe/bigdata/dataxy/temp_res/blasr.ecoli'
+filename2='/rhome/xyhe/bigdata/dataxy/temp_res/our.ecoli'
 
 def file_to_matrix(filename1):
     try:
