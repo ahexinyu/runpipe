@@ -5,7 +5,7 @@ start=0
 end=0
 totalbase=0
 M_base=0
-out=open("/rhome/xyhe/bigdata/dataxy/temp_res/blasr.ath","w")
+out=open("/rhome/xyhe/bigdata/dataxy/temp_res/blasr_target.ath","w")
 with open(sys.argv[1])as lines:
     name=""
     prename=""
