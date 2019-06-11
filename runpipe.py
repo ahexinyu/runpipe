@@ -1,4 +1,4 @@
-.import os
+import os
 import argparse
 import ConfigParser
 
@@ -46,6 +46,13 @@ if args.output=="current directory":
     directory=pwd
 else:
     directory=args.output
+
+
+active_commad='source activate 000'
+err=os.system(factive_commad)
+if err!=0:
+    print('Failed to active')
+    exit(-1)
 
 
 ##########fastp################
