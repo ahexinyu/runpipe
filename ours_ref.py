@@ -26,6 +26,9 @@ with open(sys.argv[1])as lines:
         if data[5].isdigit()==False or data[4].isdigit()==False:
             print("error  isdigit is",line)
             continue
+        if data[7].isdigit()==False or data[8].isdigit()==False:
+            print("referror  isdigit is",line)
+            continue
         temp_total=int(data[5])-int(data[4])
         ref_name=data[1]
         ref_start=int(data[7])
