@@ -1,4 +1,4 @@
-cimport re
+import re
 import linecache
 import os
 import sys
