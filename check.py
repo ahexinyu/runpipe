@@ -1,4 +1,4 @@
-import re
+cimport re
 import linecache
 import os
 import sys
@@ -48,7 +48,7 @@ if __name__=='__main__':
         for j in range(rows2):
             row_data1=data1[i].split()
             name=row_data1[1]
-            temp_length=row_data1[2]
+            temp_length=int(row_data1[2])
             row_data2=data2[j].split()
             name2=row_data2[0]
             start=int(row_data2[1])
