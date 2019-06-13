@@ -8,7 +8,7 @@ with open(sys.argv[1])as lines:
     for line in lines:
         da=line.split()
         ref_name=da[1]
-        ref_length=int(da[2])
+        ref_length=da[2]
         ref_array[ref_name]=ref_length
 with open(sys.argv[2])as lines:
     refname=""
@@ -31,7 +31,7 @@ with open(sys.argv[2])as lines:
         start_location=0
         name=data[0]
         refname=data[2]
-        reflength=ref_array[refname]
+        reflength=int(ref_array[refname])
         cigar=data[5]
         ref_station=data[3]
         temp_M=0
