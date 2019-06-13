@@ -27,6 +27,8 @@ with open(sys.argv[2])as lines:
         if line[0]=='@':
             continue
         data=line.split()
+        if cigar.find('*')>=0:
+            continue
         num=0
         start_location=0
         name=data[0]
@@ -37,8 +39,6 @@ with open(sys.argv[2])as lines:
         temp_M=0
         temp_D=0
         temp_count=0
-        if cigar.find('*')>=0:
-            continue
         for ch in cigar:
             if ch>='A' and ch<='Z':
                 if ch=='H':
