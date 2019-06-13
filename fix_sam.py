@@ -1,0 +1,87 @@
+#!/usr/bin/python
+import sys
+import numpy as np
+base=0
+readcount=0
+ref_array=dict()
+with open(sys.argv[1])as lines:
+    for line in lines:
+        da=line.split()
+        ref_name=da[1]
+        ref_length=int(da[2])
+        ref_array[ref_name]=ref_length
+with open(sys.argv[2])as lines:
+    refname=""
+    reflength=0
+    ref_station=0
+    name=""
+    prename=""
+    pre_M=0
+    total_M=0
+    pre_station=0
+    pre_total=0
+    total_base=0
+    flag=0
+    for line in lines:
+        line=line.strip('\n')
+        if line[0]=='@':
+            continue
+        data=line.split()
+        num=0
+        start_location=0
+        name=data[0]
+        refname=data[2]
+        reflength=ref_array[refname]
+        cigar=data[5]
+        ref_station=data[3]
+        temp_M=0
+        temp_D=0
+        temp_count=0
+        if cigar.find('*')>=0:
+            continue
+        for ch in cigar:
+            if ch>='A' and ch<='Z':
+                if ch=='H':
+                    start_location=num
+                if ch=='D':
+                    temp_D+=num
+                if ch=='M'or ch=='I':
+                    temp_count+=num
+                if ch=='M':
+                    temp_M+=num
+                num=0
+            else:
+                if (ref_station+temp_M+temp_D)<=reflength:
+                    num=num*10+int(ch)
+                else:
+                    continue
+        if temp_count<500:
+            continue
+        if prename==name:
+            if temp_count<pre_total:
+                continue
+            else:
+                pre_M=temp_M
+                pre_total=temp_count
+        else:
+            if flag==0:
+                pre_M=temp_M
+                pre_total=temp_count
+                flag=1
+                prename=name
+                pre_station=start_location
+                name=""
+                continue
+            else:
+                total_M+=pre_M
+                total_base+=pre_total
+                pre_M=temp_M
+                pre_total=temp_count
+                prename=name
+                pre_station=start_location
+                readcount=readcount+1
+                name=""
+                flag=1
+print("readcount is",readcount)
+print("M is",total_M);
+print("total_base is",total_base)
