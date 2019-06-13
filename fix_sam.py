@@ -27,6 +27,7 @@ with open(sys.argv[2])as lines:
         if line[0]=='@':
             continue
         data=line.split()
+        cigar=data[5]
         if cigar.find('*')>=0:
             continue
         num=0
@@ -34,7 +35,6 @@ with open(sys.argv[2])as lines:
         name=data[0]
         refname=data[2]
         reflength=int(ref_array[refname])
-        cigar=data[5]
         ref_station=int(data[3])
         temp_M=0
         temp_D=0
