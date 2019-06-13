@@ -55,4 +55,5 @@ if __name__=='__main__':
             end=int(row_data2[2])
             if name==name2:
                 if end>temp_length:
-                    out.write(name2+'\n')
+                    count+=1
+out.write(count+'\n')
