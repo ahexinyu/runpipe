@@ -1,7 +1,7 @@
 import numpy as np
 
 if __name__ == '__main__':
-    ref_file = '/rhome/xyhe/bigdata/dataxy/temp_res/ref.ath'
+    ref_file = '/rhome/xyhe/bigdata/dataxy/temp_res/target_ref.ath'
     align_file = '/rhome/xyhe/bigdata/dataxy/temp_res/target_ath'
 
     ref_arr = dict()
