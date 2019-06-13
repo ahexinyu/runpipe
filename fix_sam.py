@@ -33,7 +33,7 @@ with open(sys.argv[2])as lines:
         refname=data[2]
         reflength=int(ref_array[refname])
         cigar=data[5]
-        ref_station=data[3]
+        ref_station=int(data[3])
         temp_M=0
         temp_D=0
         temp_count=0
