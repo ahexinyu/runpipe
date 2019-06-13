@@ -1,6 +1,6 @@
 #!/usr/bin/python
 import sys
-import numpy as np
+
 base=0
 readcount=0
 ref_array=dict()
