@@ -25,7 +25,7 @@ with open(sys.argv[1])as lines:
         temp_total=int(data[5])-int(data[4])
         reflength=int(data[9])
         if reflength<(int(data[8])):
-            temp_total=temp_total-((int(data[8])-reflength)
+            temp_total=temp_total-((int(data[8])-reflength))
         if temp_total<500:
             continue
         if  name==prename:
