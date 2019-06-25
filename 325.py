@@ -6,4 +6,4 @@ with open(filename)as lines:
     for line in lines:
         data=line.split()
         if data[0]==324:
-         print line
+            print line
