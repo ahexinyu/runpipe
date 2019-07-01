@@ -1,4 +1,4 @@
-e#!/usr/bin/python
+#!/usr/bin/python
 import sys
 
 filename="/rhome/xyhe/bigdata/formal/formal/MECAT-master_1/Linux-amd64/bin/no"
