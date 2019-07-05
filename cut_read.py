@@ -9,7 +9,7 @@ with open(filename)as lines:
     for line in lines:
         if line[0]=='>':
             read_num=read_num+1
-            if read_num==33:
+            if read_num==34:
                 out1.write(">33"+'\n')
                 flag=1
             else:
