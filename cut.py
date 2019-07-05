@@ -2,7 +2,7 @@
 import sys
 base=0
 filename="/rhome/xyhe/bigdata/dataxy/reference/ref_ecoli.fq"
-out1=open("/rhome/xyhe/bigdata/dataxy/reference/cut2","w")
+out1=open("/rhome/xyhe/bigdata/dataxy/reference/cut1","w")
 with open(filename)as lines:
     for line in lines:
         if line[0]=='>':
@@ -12,5 +12,5 @@ with open(filename)as lines:
             for ch in line:
                 c=ch
                 base=base+1
-                if base>1704000and base<1707000:
+                if base>2077000and base<2080000:
                     out1.write(ch)
