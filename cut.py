@@ -12,5 +12,5 @@ with open(filename)as lines:
             for ch in line:
                 c=ch
                 base=base+1
-                if base>1776000and base<1781000:
+                if base>1576000and base<1981000:
                     out1.write(ch)
