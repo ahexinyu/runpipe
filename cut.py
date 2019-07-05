@@ -6,7 +6,7 @@ out1=open("/rhome/xyhe/bigdata/dataxy/reference/cut2","w")
 with open(filename)as lines:
     for line in lines:
         if line[0]=='>':
-            out1.write(">NC_011750.2")
+            out1.write(">NC_011750.2"+'\n')
             continue
         else:
             for ch in line:
