@@ -1,8 +1,8 @@
 import numpy as np
 
 if __name__ == '__main__':
-    ref_file = '/rhome/xyhe/bigdata/dataxy/temp_res/ref.ath'
-    align_file = '/rhome/xyhe/bigdata/dataxy/temp_res/ours2.ath'
+    ref_file = '/rhome/xyhe/bigdata/dataxy/temp_res/ref.ecoli'
+    align_file = '/rhome/xyhe/formal/formal/MECAT-master_1/Linux-amd64/bin/no3'
 
     ref_arr = dict()
 
