@@ -30,7 +30,7 @@ with open(filename)as lines:
                     base=base+1
 print(base)
 
-
+print(base)
 
 
 
