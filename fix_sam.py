@@ -39,6 +39,7 @@ with open(sys.argv[2])as lines:
         temp_M=0
         temp_D=0
         temp_count=0
+        flag2=0
         for ch in cigar:
             if ch>='A' and ch<='Z':
                 if ch=='H':
@@ -52,9 +53,14 @@ with open(sys.argv[2])as lines:
                 num=0
             else:
                 if (ref_station+temp_M+temp_D)<=reflength:
-                    num=num*10+int(ch)
+                    if(isinstance(int(ch),int)){num=num*10+int(ch)}
+                    else{
+                        flag2=1;
+                        break;
+                        }
                 else:
                     continue
+        if(flag2==1){break}
         if temp_count<500:
             continue
         if prename==name:
