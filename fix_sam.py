@@ -53,7 +53,7 @@ with open(sys.argv[2])as lines:
                 num=0
             else:
                 if (ref_station+temp_M+temp_D)<=reflength:
-                    if(isinstance(int(ch),int)):
+                    if(ch>='0'&&ch<='9'):
                         num=num*10+int(ch)
                     else:
                         flag2=1;
