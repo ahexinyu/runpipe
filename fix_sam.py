@@ -62,7 +62,7 @@ with open(sys.argv[2])as lines:
                     continue
         if(flag2==1):
             print(line);
-            break
+            continue
         if temp_count<500:
             continue
         if prename==name:
