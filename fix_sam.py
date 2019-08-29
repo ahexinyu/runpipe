@@ -53,14 +53,15 @@ with open(sys.argv[2])as lines:
                 num=0
             else:
                 if (ref_station+temp_M+temp_D)<=reflength:
-                    if(isinstance(int(ch),int)){num=num*10+int(ch)}
-                    else{
+                    if(isinstance(int(ch),int)):
+                        num=num*10+int(ch)
+                    else:
                         flag2=1;
                         break;
-                        }
                 else:
                     continue
-        if(flag2==1){break}
+        if(flag2==1):
+            break
         if temp_count<500:
             continue
         if prename==name:
