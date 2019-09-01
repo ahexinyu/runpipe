@@ -55,14 +55,8 @@ with open(sys.argv[2])as lines:
                     temp_M+=num
                 num=0
             else:
-                if (ref_station+temp_M+temp_D)<=reflength:
-                    if(ch>='0' and ch<='9'):
-                        num=num*10+int(ch)
-                    else:
-                        flag2=1;
-                        break;
-                else:
-                    continue
+                if(ch>='0' and ch<='9'):
+                    num=num*10+int(ch)
         if(flag2==1):
             print(line);
             continue
