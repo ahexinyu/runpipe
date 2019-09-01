@@ -27,6 +27,9 @@ with open(sys.argv[2])as lines:
         if line[0]=='@':
             continue
         data=line.split()
+        if len(data)<11:
+            print(line)
+            continue
         cigar=data[5]
         if cigar.find('*')>=0:
             continue
