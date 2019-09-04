@@ -5,5 +5,5 @@ filename="/rhome/xyhe/bigdata/formal/formal/MECAT-master_1/Linux-amd64/bin/yea_o
 with open(filename)as lines:
     for line in lines:
         data=line.split()
-        if data[0]=='2906':
+        if data[0]=='4060':
             print line
