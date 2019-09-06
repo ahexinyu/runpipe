@@ -1,7 +1,7 @@
 #!/usr/bin/python
 import sys
 base=0
-out=open("/rhome/xyhe/bigdata/dataxy/temp_res/target_ath2","w")
+out=open("/rhome/xyhe/bigdata/dataxy/temp_res/target_yeast2","w")
 with open(sys.argv[1])as lines:
     name=""
     prename=""
