@@ -15,7 +15,6 @@ with open(sys.argv[1])as lines:
     total_base=0
     flag=0
     end=0
-    flag2=0
     for line in lines:
         line=line.strip('\n')
         if line[0]=='@':
@@ -28,6 +27,7 @@ with open(sys.argv[1])as lines:
         temp_M=0
         temp_D=0
         temp_count=0
+        flag2=0
         start_location=int(data[3])
         refname=data[2]
         if cigar.find('*')!=-1:
