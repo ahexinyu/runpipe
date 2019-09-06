@@ -15,6 +15,7 @@ with open(sys.argv[1])as lines:
     total_base=0
     flag=0
     end=0
+    flag2=0
     for line in lines:
         line=line.strip('\n')
         if line[0]=='@':
