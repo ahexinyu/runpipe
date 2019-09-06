@@ -41,7 +41,14 @@ with open(sys.argv[1])as lines:
                     temp_M+=num
                 num=0
             else:
-                num=num*10+int(ch)
+                if(ch>='0' and ch<='9'):
+                    num=num*10+int(ch)
+                else:
+                    flag2=1
+                    continue
+        if(flag2==1):
+            print line;
+            continue
         if prename==name:
             if temp_count<pre_total:
                 continue
