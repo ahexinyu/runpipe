@@ -23,7 +23,6 @@ with open(sys.argv[2])as lines:
     total_base=0
     flag=0
     for line in lines:
-        line=line.strip('\n')
         if line[0]=='@':
             continue
         data=line.split()
