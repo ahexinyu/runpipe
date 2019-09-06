@@ -47,7 +47,7 @@ with open(sys.argv[1])as lines:
                     flag2=1
                     continue
         if(flag2==1):
-            print line;
+            print(line);
             continue
         if prename==name:
             if temp_count<pre_total:
