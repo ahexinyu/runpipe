@@ -10,6 +10,6 @@ with open(filename)as lines:
         else:
             data=line.split();
             if len(data)!=10:
-                print line
+                print(line)
                 continue
             out.write(line)
