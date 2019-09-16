@@ -23,7 +23,7 @@ with open(file) as lines:
         for ch in cigar:
         	if ch>='A' and ch<='Z':
                 if ch=='H':
-                    H=num
+                    H+=num
                 if ch=='D':
                     D+=num
                 if ch=='I':
