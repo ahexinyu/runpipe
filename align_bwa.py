@@ -10,6 +10,7 @@ with open(file) as lines:
         read_start=0
         read_end=0
         ref_start=0
+        num=0
         ref_end=0
         M=0
         H=0
