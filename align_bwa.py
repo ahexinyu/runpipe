@@ -29,7 +29,7 @@ with open(file) as lines:
                         H+=num
                      if flagH=1:
                         continue
-                        flagH=1
+                     flagH=1
                  if  ch=='D':
                         D+=num
                  if ch=='I':
