@@ -8,4 +8,8 @@ with open(filename)as lines:
         if line[0]=='T'or line[0]=='A'or line[0]=='G'or line[0]=='C' or line[0]=='-':
             continue
         else:
+            data=line.split();
+            if len(data)!=10:
+                print line
+                continue
             out.write(line)
