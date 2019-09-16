@@ -25,16 +25,16 @@ with open(file) as lines:
             continue
         for ch in cigar:
         	if ch>='A' and ch<='Z':
-                 if  ch=='H' or 'S':
+                if ch=='H' or 'S':
                         H+=num
-                     if flagH==1:
+                    if flagH==1:
                         continue
-                     flagH=1
-                 if  ch=='D':
+                    flagH=1
+                if ch=='D':
                         D+=num
-                 if ch=='I':
+                if ch=='I':
                         I+=num
-                 if ch=='M':
+                if ch=='M':
                         M+=num
                 num=0
             else:
