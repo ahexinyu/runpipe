@@ -27,7 +27,7 @@ with open(file) as lines:
         	if ch>='A' and ch<='Z':
                  if  ch=='H' or 'S':
                         H+=num
-                     if flagH=1:
+                     if flagH==1:
                         continue
                      flagH=1
                  if  ch=='D':
