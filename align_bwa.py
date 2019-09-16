@@ -20,10 +20,16 @@ with open(file) as lines:
         refname=data[2]
         ref_start=int(data[3])
         cigar=data[5]
+        flagH=0
+        if cigar.find('*')>=0:
+            continue
         for ch in cigar:
         	if ch>='A' and ch<='Z':
-                if ch=='H':
+                if ch=='H' or 'S':
                     H+=num
+                    if flagH=1:
+                        continue
+                    flagH=1
                 if ch=='D':
                     D+=num
                 if ch=='I':
