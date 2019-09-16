@@ -1,6 +1,6 @@
 import sys
 file="/rhome/xyhe/bigdata/dataxy/result/bwa_ecoli"
-out="/rhome/xyhe/bigdata/dataxy/fliter_MECAT/bwa/eco"
+out=open("/rhome/xyhe/bigdata/dataxy/fliter_MECAT/bwa/eco","r")
 with open(file) as lines:
     for line in lines:
         if line[0]=='@':
