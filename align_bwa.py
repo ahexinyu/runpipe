@@ -19,6 +19,7 @@ with open(file) as lines:
 		read_name=data[0]
         refname=data[2]
         ref_start=int(data[3])
+        cigar=data[5]
         for ch in cigar:
         	if ch>='A' and ch<='Z':
                 if ch=='H':
