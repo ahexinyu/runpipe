@@ -41,7 +41,7 @@ with open(file) as lines:
             else:
                 num=num*10+int(ch)
         read_start=H
-        ref_end=H+M+D
+        ref_end=ref_start+M+D
         read_end=H+M+I
         out.write(str(read_name)+' '+str(read_start)+' '+str(read_end)+' '+str(refname)+' '+str(ref_start)+' '+str(ref_end)+'\n')
 
