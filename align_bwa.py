@@ -3,7 +3,7 @@ file="/rhome/xyhe/bigdata/dataxy/result/bwa_ecoli"
 out="/rhome/xyhe/bigdata/dataxy/fliter_MECAT/bwa/eco"
 with open(file) as lines:
 	for line in lines:
-		if line[0]=='@'
+		if line[0]=='@':
 			continue
 		read_name=""
 		refname=""
