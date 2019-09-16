@@ -24,7 +24,7 @@ with open(file) as lines:
         if cigar.find('*')>=0:
             continue
         for ch in cigar:
-        	if ch>='A' and ch<='Z':
+            if ch>='A' and ch<='Z':
                 if ch=='H' or ch=='S':
                         H+=num
                     if flagH==1:
