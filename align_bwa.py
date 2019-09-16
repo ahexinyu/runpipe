@@ -25,7 +25,7 @@ with open(file) as lines:
             continue
         for ch in cigar:
         	if ch>='A' and ch<='Z':
-                if ch=='H' or 'S':
+                if ch=='H' or ch=='S':
                         H+=num
                     if flagH==1:
                         continue
