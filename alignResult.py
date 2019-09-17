@@ -11,9 +11,9 @@ with open(file) as lines:
 	for line in lines:
 		data=line.split();
 		read_name=data[0]
-		read_start=(int)data[2]
-		read_end=(int)data[3]
+		read_start=int(data[2])
+		read_end=int(data[3])
 		refname=data[5]
-		ref_start=(int)data[7]
-		ref_end=(int)data[8]
-	    out.write(str(read_name)+' '+str(read_start)+' '+str(read_end)+' '+str(refname)+' '+str(ref_start)+' '+str(ref_end)+'\n')
+		ref_start=int(data[7])
+		ref_end=int(data[8])
+		out.write(str(read_name)+' '+str(read_start)+' '+str(read_end)+' '+str(refname)+' '+str(ref_start)+' '+str(ref_end)+'\n')
