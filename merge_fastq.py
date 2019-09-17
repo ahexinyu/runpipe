@@ -4,9 +4,9 @@ txtpath='/rhome/xyhe/bigdata/dataxy/PBSIM-PacBio-Simulator/src/data_yeast'
 namelist=[x for x in os.listdir(txtpath)]
 fastqfile=[]
 count=0
-for x in range(len[namelist]):
-    if namelist[x].find(".fastq")!=-1:
-        fastqfile[count]=namelist[x]    
+for i in range(len(namelist)):
+    if namelist[i].find(".fastq")!=-1:
+        fastqfile[count]=namelist[i]    
         count=count+1
 print(count)
 outfilename='/rhome/xyhe/bigdata/dataxy/PBSIM-PacBio-Simulator/src/yeast.fastq'
