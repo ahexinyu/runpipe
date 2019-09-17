@@ -7,7 +7,7 @@ count=0
 for x in range(len[namelist]):
     if namelist[x].find(".fastq")!=-1:
         fastqfile[count]=namelist[x]    
-        count++
+        count=count+1
 print(count)
 outfilename='/rhome/xyhe/bigdata/dataxy/PBSIM-PacBio-Simulator/src/yeast.fastq'
 outfile=open(outfilename,'a')
