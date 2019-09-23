@@ -104,7 +104,7 @@ if __name__ == '__main__':
     read_aligns = {key: list() for key in read_targets}
 
     for align in parser_tools.parse_align(ref_align_path):
-        if align.ref_end <= ref_lens[align.ref]:
+        if align.ref_end <= ref_lens[align.ref] and align.ref_end != align.ref_begin:
             read_aligns[align.query].append(
                 ReadAlign(align.ref, align.forward, align.query_begin, align.query_end, align.ref_begin, align.ref_end))
     print('OK!')
