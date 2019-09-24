@@ -16,4 +16,4 @@ with open(file) as lines:
 		refname=data[5]
 		ref_start=int(data[7])
 		ref_end=int(data[8])
-		out.write(str(read_name)+' '+str(read_start)+' '+str(read_end)+' '+str(refname)+' '+str(ref_start)+' '+str(ref_end)+'\n')
+		out.write(str(read_name)+' '+str(refname)+' '+str(read_start)+' '+str(read_end)+' '+str(ref_start)+' '+str(ref_end)+'\n')

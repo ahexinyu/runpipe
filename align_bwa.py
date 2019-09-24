@@ -43,6 +43,6 @@ with open(file) as lines:
         read_start=H
         ref_end=ref_start+M+D
         read_end=H+M+I
-        out.write(str(read_name)+' '+str(read_start)+' '+str(read_end)+' '+str(refname)+' '+str(ref_start)+' '+str(ref_end)+'\n')
+        out.write(str(read_name)+' '+str(refname)+' '+str(read_start)+' '+str(read_end)+' '+str(ref_start)+' '+str(ref_end)+'\n')
 
 
