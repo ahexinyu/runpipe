@@ -1,6 +1,6 @@
 import sys
-file="/rhome/xyhe/bigdata/dataxy/result/moni_ath"
-out=open("/rhome/xyhe/bigdata/dataxy/fliter_MECAT/blasr/ath","w")
+file="/rhome/xyhe/bigdata/dataxy/result/moni_yeast"
+out=open("/rhome/xyhe/bigdata/dataxy/fliter_MECAT/blasr/yeast","w")
 with open(file) as lines:
     read_name=""
     refname=""
