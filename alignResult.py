@@ -10,11 +10,13 @@ with open(file) as lines:
     ref_end=0
     qlength=0
     ref_length=0
+    strr=""
     dev=""
     dec=""
     for line in lines:
         data=line.split();
-        read_name=data[0]
+        strr=data[0].split('/')
+        read_name=strr[0]
         read_start=int(data[2])
         read_end=int(data[3])
         refname=data[5]
