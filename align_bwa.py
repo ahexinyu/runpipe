@@ -1,4 +1,4 @@
-alimport sys
+import sys
 file="/rhome/xyhe/bigdata/dataxy/result/ath_moni_bwa.sam"
 out=open("/rhome/xyhe/bigdata/dataxy/fliter_MECAT/bwa/ath","w")
 with open(file) as lines:
