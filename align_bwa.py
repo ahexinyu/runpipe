@@ -1,4 +1,4 @@
-import sys
+alimport sys
 file="/rhome/xyhe/bigdata/dataxy/result/ath_moni_bwa.sam"
 out=open("/rhome/xyhe/bigdata/dataxy/fliter_MECAT/bwa/ath","w")
 with open(file) as lines:
@@ -12,6 +12,9 @@ with open(file) as lines:
         ref_start=0
         num=0
         ref_end=0
+        char far="F"
+        char F="R"
+        dez=""
         M=0
         H=0
         D=0
@@ -22,6 +25,10 @@ with open(file) as lines:
         ref_start=int(data[3])
         cigar=data[5]
         flagH=0
+        if (int(data[1])>>4)&1:
+            dez="R"
+        else:
+            dez="F"
         if cigar.find('*')>=0:
             continue
         for ch in cigar:
@@ -43,6 +50,6 @@ with open(file) as lines:
         read_start=H
         ref_end=ref_start+M+D
         read_end=H+M+I
-        out.write(str(read_name)+' '+str(refname)+' '+str(read_start)+' '+str(read_end)+' '+str(ref_start)+' '+str(ref_end)+'\n')
+        out.write(str(read_name)+' '+str(refname)+' '+str(dez)+' '+str(read_start)+' '+str(read_end)+' '+str(ref_start)+' '+str(ref_end)+'\n')
 
 
