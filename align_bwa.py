@@ -12,8 +12,6 @@ with open(file) as lines:
         ref_start=0
         num=0
         ref_end=0
-        char far="F"
-        char F="R"
         dez=""
         M=0
         H=0
