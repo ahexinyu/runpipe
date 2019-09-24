@@ -24,9 +24,10 @@ with open(file) as lines:
         qlength=int(data[1])
         ref_length=int(data[6])
         ref_end=int(data[8])
-        dec=data[4]
+        dec=data[9]
         if dec=="+":
             dev="F"
         else:
             dev="R"
+            read_start, read_end = qlength - read_end, qlength - read_start
         out.write(str(read_name)+' '+str(refname)+' '+str(dev)+' '+str(read_start)+' '+str(read_end)+' '+str(qlength)+' '+str(ref_start)+' '+str(ref_end)+' '+str(ref_length)+'\n')
