@@ -27,4 +27,4 @@ with open(file) as lines:
             dev="F"
         else:
             dev="R"
-        out.write(str(read_name)+' '+str(refname)+' '+str(dev)+' '+str(read_start)+' '+str(read_end)+' '+str(qlength)+' 'str(ref_start)+' '+str(ref_end)+' '+str(ref_length)+'\n')
+        out.write(str(read_name)+' '+str(refname)+' '+str(dev)+' '+str(read_start)+' '+str(read_end)+' '+str(qlength)+' '+str(ref_start)+' '+str(ref_end)+' '+str(ref_length)+'\n')
