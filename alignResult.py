@@ -2,7 +2,7 @@ import sys
 file="/rhome/xyhe/bigdata/dataxy/result/moni_ecoli"
 out=open("/rhome/xyhe/bigdata/dataxy/fliter_MECAT/blasr/eco","w")
 with open(file) as lines:
-    read_name=""ee
+    read_name=""
     refname=""
     read_start=0
     read_end=0
