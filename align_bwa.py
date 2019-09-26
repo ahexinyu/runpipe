@@ -2,7 +2,7 @@ import sys
 from Bio import SeqIO 
 file="/rhome/xyhe/bigdata/dataxy/result/eco_moni_bwa.sam"
 read_file="/rhome/xyhe/bigdata/dataxy/PBSIM-PacBio-Simulator/src/data_eco/sd_0001.fastq"
-reference_file="/rhome/xyhe/bigdata/dataxy/target/tar_ecoli.fasta"
+reference_file="/rhome/xyhe/bigdata/dataxy/reference/ref_ecoli.fasta"
 ref_len=dict()
 length_r=dict()
 out=open("/rhome/xyhe/bigdata/dataxy/fliter_MECAT/bwa/eco","w")
