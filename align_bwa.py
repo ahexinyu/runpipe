@@ -23,14 +23,14 @@ with open(file) as lines:
         num=0
         ref_end=0
         dez=""
-        cigar=data[5]
-        if cigar.find('*')>=0:
-            continue
         M=0
         H=0
         D=0
         I=0
         data=line.split()
+         cigar=data[5]
+        if cigar.find('*')>=0:
+            continue
         read_name=data[0]
         refname=data[2]
         reference_len=length_r[refname]
