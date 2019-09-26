@@ -1,11 +1,11 @@
 import sys
 from Bio import SeqIO 
-file="/rhome/xyhe/bigdata/dataxy/result/eco_moni_bwa.sam"
-read_file="/rhome/xyhe/bigdata/dataxy/PBSIM-PacBio-Simulator/src/data_eco/sd_0001.fastq"
-reference_file="/rhome/xyhe/bigdata/dataxy/reference/ref_ecoli.fasta"
+file="/rhome/xyhe/bigdata/dataxy/result/ath_moni_bwa.sam"
+read_file="/rhome/xyhe/bigdata/dataxy/PBSIM-PacBio-Simulator/src/ath.fastq"
+reference_file="/rhome/xyhe/bigdata/dataxy/reference/lyrata.fasta"
 ref_len=dict()
 length_r=dict()
-out=open("/rhome/xyhe/bigdata/dataxy/fliter_MECAT/bwa/eco","w")
+out=open("/rhome/xyhe/bigdata/dataxy/fliter_MECAT/bwa/ath","w")
 for  seq_record in SeqIO.parse(read_file, "fastq"):
     ref_len[seq_record.id]=len(seq_record)#获取read字典
 for  seq_record in SeqIO.parse(reference_file, "fasta"):
