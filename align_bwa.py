@@ -6,8 +6,7 @@ ref_len=dict()
 out=open("/rhome/xyhe/bigdata/dataxy/fliter_MECAT/bwa/ath","w")
 for  seq_record in SeqIO.parse(read_file, "fastq"):
     ref_len[seq_record.id]=len(seq_record)
-    print(ref_len)
-"""with open(file) as lines:
+with open(file) as lines:
     for line in lines:
         if line[0]=='@':
             continue
@@ -16,6 +15,7 @@ for  seq_record in SeqIO.parse(read_file, "fastq"):
         read_start=0
         read_end=0
         ref_start=0
+        read_length=0
         num=0
         ref_end=0
         dez=""
@@ -26,6 +26,7 @@ for  seq_record in SeqIO.parse(read_file, "fastq"):
         data=line.split()
         read_name=data[0]
         refname=data[2]
+        read_length=ref_len(read_name)
         ref_start=int(data[3])
         cigar=data[5]
         flagH=0
@@ -54,6 +55,6 @@ for  seq_record in SeqIO.parse(read_file, "fastq"):
         read_start=H
         ref_end=ref_start+M+D
         read_end=H+M+I
-        out.write(str(read_name)+' '+str(refname)+' '+str(dez)+' '+str(read_start)+' '+str(read_end)+' '+str(ref_start)+' '+str(ref_end)+'\n')"""
+        out.write(str(read_name)+' '+str(refname)+' '+str(dez)+' '+str(read_start)+' '+str(read_end)+' '+str(read_length)+' '+str(ref_start)+' '+str(ref_end)+'\n')
 
 
