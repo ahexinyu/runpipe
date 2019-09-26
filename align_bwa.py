@@ -2,11 +2,11 @@ import sys
 from Bio import SeqIO 
 file="/rhome/xyhe/bigdata/dataxy/result/ath_moni_bwa.sam"
 read_file="/rhome/xyhe/bigdata/dataxy/PBSIM-PacBio-Simulator/src/data_eco/sd_0001.fastq"
-ref_Len=dict()
+ref_len=dict()
 out=open("/rhome/xyhe/bigdata/dataxy/fliter_MECAT/bwa/ath","w")
 for  seq_record in SeqIO.parse(read_file, "fastq"):
-    ref_Len[seq_record.id]=len(seq_record)
-print(ref_start[S1_1])
+    ref_len[seq_record.id]=len(seq_record)
+print(ref_len[S1_1])
 """with open(file) as lines:
     for line in lines:
         if line[0]=='@':
