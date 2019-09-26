@@ -28,7 +28,7 @@ with open(file) as lines:
         D=0
         I=0
         data=line.split()
-         cigar=data[5]
+        cigar=data[5]
         if cigar.find('*')>=0:
             continue
         read_name=data[0]
