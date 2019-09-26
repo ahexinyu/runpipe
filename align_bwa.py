@@ -23,6 +23,9 @@ with open(file) as lines:
         num=0
         ref_end=0
         dez=""
+        cigar=data[5]
+        if cigar.find('*')>=0:
+            continue
         M=0
         H=0
         D=0
@@ -33,14 +36,11 @@ with open(file) as lines:
         reference_len=length_r[refname]
         read_length=ref_len[read_name]
         ref_start=int(data[3])
-        cigar=data[5]
         flagH=0
         if (int(data[1])>>4)&1:
             dez="R"
         else:
             dez="F"
-        if cigar.find('*')>=0:
-            continue
         for ch in cigar:
             if ch>='A' and ch<='Z':
                 if ch=='H' or ch=='S':
