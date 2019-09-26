@@ -4,10 +4,11 @@ file="/rhome/xyhe/bigdata/dataxy/result/ath_moni_bwa.sam"
 read_file="/rhome/xyhe/bigdata/dataxy/PBSIM-PacBio-Simulator/src/data/sd_0001.fastq"
 ref_Len=dict()
 out=open("/rhome/xyhe/bigdata/dataxy/fliter_MECAT/bwa/ath","w")
-for  seq_record in SeqIO.parse(file, "fastq"):
+for  seq_record in SeqIO.parse(read_file, "fastq"):
     ref_Len[seq_record.id]=lens(seq_record)
 print(ref_start[S1_1])
-  for line in lines:
+"""with open(file) as lines:
+    for line in lines:
         if line[0]=='@':
             continue
         read_name=""
@@ -53,6 +54,6 @@ print(ref_start[S1_1])
         read_start=H
         ref_end=ref_start+M+D
         read_end=H+M+I
-        out.write(str(read_name)+' '+str(refname)+' '+str(dez)+' '+str(read_start)+' '+str(read_end)+' '+str(ref_start)+' '+str(ref_end)+'\n')
+        out.write(str(read_name)+' '+str(refname)+' '+str(dez)+' '+str(read_start)+' '+str(read_end)+' '+str(ref_start)+' '+str(ref_end)+'\n')"""
 
 
