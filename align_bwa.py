@@ -26,7 +26,7 @@ with open(file) as lines:
         data=line.split()
         read_name=data[0]
         refname=data[2]
-        read_length=ref_len(read_name)
+        read_length=ref_len[read_name]
         ref_start=int(data[3])
         cigar=data[5]
         flagH=0
