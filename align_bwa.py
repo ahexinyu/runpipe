@@ -3,7 +3,7 @@ from Bio import SeqIO
 file="/rhome/xyhe/bigdata/dataxy/result/ath_moni_bwa.sam"
 read_file="/rhome/xyhe/bigdata/dataxy/PBSIM-PacBio-Simulator/src/data_eco/sd_0001.fastq"
 ref_len=dict()
-out=open("/rhome/xyhe/bigdata/dataxy/fliter_MECAT/bwa/ath","w")
+out=open("/rhome/xyhe/bigdata/dataxy/fliter_MECAT/bwa/eco","w")
 for  seq_record in SeqIO.parse(read_file, "fastq"):
     ref_len[seq_record.id]=len(seq_record)
 with open(file) as lines:
