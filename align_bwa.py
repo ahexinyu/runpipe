@@ -6,7 +6,7 @@ ref_len=dict()
 out=open("/rhome/xyhe/bigdata/dataxy/fliter_MECAT/bwa/ath","w")
 for  seq_record in SeqIO.parse(read_file, "fastq"):
     ref_len[seq_record.id]=len(seq_record)
-print(ref_len[S1_1])
+    print(ref_len)
 """with open(file) as lines:
     for line in lines:
         if line[0]=='@':
