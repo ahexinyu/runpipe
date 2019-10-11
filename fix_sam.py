@@ -65,8 +65,6 @@ with open(sys.argv[2])as lines:
         if(flag2==1):
             print(line);
             continue
-        if temp_count<1000:
-            continue
         if prename==name:
             if temp_count<pre_total:
                 continue
