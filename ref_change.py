@@ -1,6 +1,6 @@
 #!/usr/bin/python
 import sys
-out=open("/rhome/xyhe/bigdata/dataxy/change_ref/ref.ecoli","w")
+out=open("/rhome/xyhe/bigdata/dataxy/change_ref/ref.yeast","w")
 with open(sys.argv[1])as lines:
     name=""
     length=""
