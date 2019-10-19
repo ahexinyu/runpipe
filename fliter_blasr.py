@@ -12,15 +12,21 @@ with open(sys.argv[1])as lines:
     pre_len=0
     pre_M=0
     temp_len=0
+    qlength=0
     flag=0
+    dev=""
     for line in lines:
         data=line.split()
         name=data[0]
         start=int(data[2])
         end=int(data[3])
+        dev=data[9]
         temp_len=end-start
+        qlength=int(data[1])
         if temp_len<500:
             continue
+        if dec=="-":
+            start,end = qlength-start,qlength-end
         if name==prename:
             if temp_len>pre_len:
                 pre_M=int(data[11])
