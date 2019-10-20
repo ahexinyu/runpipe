@@ -28,6 +28,8 @@ with open(sys.argv[1])as lines:
         temp_D=0
         temp_count=0
         flag2=0
+        if data[3].isdigit()==False:
+            continue
         start_location=int(data[3])
         refname=data[2]
         if cigar.find('*')!=-1:
