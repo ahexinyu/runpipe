@@ -37,6 +37,8 @@ with open(sys.argv[2])as lines:
         name=data[0]
         refname=data[2]
         reflength=int(ref_array[refname])
+        if data[3].isdigit()==False:
+            continue
         ref_station=int(data[3])
         temp_M=0
         temp_D=0
