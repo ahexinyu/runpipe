@@ -10,7 +10,7 @@ import num2ref
 if __name__ == '__main__':
     # Cmd env
     # Modify mummer command
-    mummer_bin_dir = '/home/amadeus/Github/mummer-4.0.0beta2/'
+    mummer_bin_dir = ''
     nucmer_cmd = os.path.join(mummer_bin_dir, 'nucmer')
     show_coords_cmd = os.path.join(mummer_bin_dir, 'show-coords')
 
