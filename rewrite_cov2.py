@@ -2,7 +2,7 @@ import numpy as np
 
 if __name__ == '__main__':
     ref_file = '/rhome/xyhe/bigdata/dataxy/temp_res/ref.ath'
-    align_file = '/rhome/xyhe/bigdata/dataxy/change_ref/F11/ath_mecat'
+    align_file = '/rhome/xyhe/bigdata/dataxy/change_ref/F11/ath_ours'
 
     ref_arr = dict()
 
