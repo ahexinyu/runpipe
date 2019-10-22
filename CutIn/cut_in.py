@@ -99,7 +99,7 @@ if __name__ == '__main__':
 
     print('\trunning {}'.format(mecat_new_cmd))
     subprocess.run([mecat_new_cmd, '-d', read_path, '-r', ref_path, '-w', os.path.join(mecat_dir, 'wrk'),
-                    '-t', str(thread_num), '-o', 'nouse.ref', '-p', '2.ref'],
+                    '-t', str(thread_num), '-p', 'nouse.ref', '-o', '2.ref'],
                    stdout=None, stderr=subprocess.STDOUT, cwd=mecat_dir)
     num2ref.num2ref(read_path, os.path.join(mecat_dir, '2.ref'), os.path.join(align_dir, '2.ref'))
     align_path_list.append(os.path.join(align_dir, '2.ref'))
