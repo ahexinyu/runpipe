@@ -11,9 +11,10 @@ if __name__ == '__main__':
     # Cmd env
     # Modify mummer command
     mummer_bin_dir = ''
-    nucmer_cmd = os.path.join(mummer_bin_dir, 'nucmer')
-    show_coords_cmd = os.path.join(mummer_bin_dir, 'show-coords')
-
+    nucmer_cmd='nucmer'
+    #nucmer_cmd = os.path.join(mummer_bin_dir, 'nucmer')
+    #show_coords_cmd = os.path.join(mummer_bin_dir, 'show-coords')
+    show_coords_cmd='show-coords'
     # Modify mecat command
     mecat_old_cmd = '/rhome/xyhe/bigdata/MECAT/Linux-amd64/bin/mecat2ref'
     mecat_new_cmd = '/rhome/xyhe/bigdata/formal/formal/MECAT-master_1/Linux-amd64/bin/mecat2ref'
