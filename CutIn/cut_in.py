@@ -1,4 +1,4 @@
-import itertools
+-import itertools
 import os
 import subprocess
 import sys
@@ -61,7 +61,7 @@ if __name__ == '__main__':
     read_to_target_path = os.path.abspath(args.__dict__.get('from'))
     thread_num = args.thread
 
-    wrk_dir = args.work
+    wrk_dir = os.path.abspath(args.work)
     mummer_dir = os.path.join(wrk_dir, 'nucmer')
     align_dir = os.path.join(wrk_dir, 'align')
     os.makedirs(mummer_dir, exist_ok=True)
