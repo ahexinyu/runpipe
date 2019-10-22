@@ -21,7 +21,7 @@ if __name__ == '__main__':
     mecat_cmd_list = [mecat_old_cmd, mecat_new_cmd]
 
     # Evaluate command
-    road_roller_da = '/home/amadeus/Project/CLionProjects/road_roller_cpp/cmake-build-release/road_roller'
+    road_roller_da = '/bigdata/baolab/huangs/Shared/road_roller_cpp/build/road_roller'
 
     parser = argparse.ArgumentParser(
         description='种田酱好萌', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
