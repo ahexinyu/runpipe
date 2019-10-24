@@ -17,8 +17,8 @@ if __name__ == '__main__':
     show_coords_cmd='show-coords'
     # Modify mecat command
     mecat_old_cmd = '/rhome/xyhe/bigdata/MECAT/Linux-amd64/bin/mecat2ref'
-    mecat_new_cmd = '/rhome/xyhe/bigdata/formal/formal/MECAT-master_1/Linux-amd64/bin/mecat2ref'
-    #mecat_new_cmd = '/rhome/xyhe/bigdata/2MECAT/mecat2ref'
+    #mecat_new_cmd = '/rhome/xyhe/bigdata/formal/formal/MECAT-master_1/Linux-amd64/bin/mecat2ref'
+    mecat_new_cmd = '/rhome/xyhe/bigdata/2MECAT/mecat2ref'
     mecat_cmd_list = [mecat_old_cmd, mecat_new_cmd]
 
     # Evaluate command
