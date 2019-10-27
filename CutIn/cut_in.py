@@ -69,10 +69,10 @@ if __name__ == '__main__':
     os.makedirs(align_dir, exist_ok=True)
 
     print('Running NUCMER...')
-    '''subprocess.run([nucmer_cmd, '--maxgap=500', '--minmatch=10', '-p', 'out', target_path, ref_path],
-                   stdout=None, stderr=subprocess.STDOUT, cwd=mummer_dir)'''
-    subprocess.run([nucmer_cmd, '--maxgap=500', '--mincluster=100', '-p', 'out', target_path, ref_path],
-               stdout=None, stderr=subprocess.STDOUT, cwd=mummer_dir)
+    subprocess.run([nucmer_cmd, '--maxgap=500', '--minmatch=10', '-p', 'out', target_path, ref_path],
+                   stdout=None, stderr=subprocess.STDOUT, cwd=mummer_dir)
+    '''subprocess.run([nucmer_cmd, '--maxgap=500', '--mincluster=100', '-p', 'out', target_path, ref_path],
+               stdout=None, stderr=subprocess.STDOUT, cwd=mummer_dir)'''
     print('OK')
 
     print('Runnning SHOW-COORD...')
