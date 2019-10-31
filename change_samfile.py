@@ -1,7 +1,7 @@
 #!/usr/bin/python
 import sys
 base=0
-out=open("/rhome/xyhe/bigdata/dataxy/change_ref/start_to_end/bwa_eco_f11","w")
+out=open("/rhome/xyhe/bigdata/dataxy/change_ref/start_to_end/bwa_yeast_arb","w")
 with open(sys.argv[1])as lines:
     name=""
     prename=""
