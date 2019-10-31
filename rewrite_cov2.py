@@ -1,8 +1,8 @@
 import numpy as np
 
 if __name__ == '__main__':
-    ref_file = '/rhome/xyhe/bigdata/dataxy/change_ref/arb.yeast'
-    align_file = '/rhome/xyhe/bigdata/dataxy/change_ref/start_to_end/bwa_yeast_arb'
+    ref_file = '/rhome/xyhe/bigdata/dataxy/change_ref/ref.ecoli'
+    align_file = '/rhome/xyhe/bigdata/dataxy/change_ref/start_to_end/bwa_eco_f11'
 
     ref_arr = dict()
 
