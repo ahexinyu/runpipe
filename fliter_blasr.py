@@ -25,7 +25,7 @@ with open(sys.argv[1])as lines:
         qlength=int(data[1])
         if temp_len<500:
             continue
-        if dec=="-":
+        if dev=="-":
             start,end = qlength-start,qlength-end
         if name==prename:
             if temp_len>pre_len:
