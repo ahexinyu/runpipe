@@ -23,6 +23,8 @@ with open(sys.argv[1])as lines:
         dev=data[9]
         temp_len=end-start
         qlength=int(data[1])
+        if temp_len<500:
+            continue
         if name==prename:
             if temp_len>pre_len:
                 pre_M=int(data[11])
