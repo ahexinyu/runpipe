@@ -25,7 +25,7 @@ with open(sys.argv[1])as lines:
         data=line.split()
         name=data[0]
         dev=data[9]
-        r_len=data[6]
+        r_len=int(data[6])
         start=int(data[2])
         end=int(data[3])
         temp_len=end-start
