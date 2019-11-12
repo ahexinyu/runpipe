@@ -10,6 +10,7 @@ with open(sys.argv[1])as lines:
     name=""
     prename=""
     pre_len=0
+    dev=""
     pre_M=0
     temp_len=0
     preref_start=0
@@ -18,15 +19,19 @@ with open(sys.argv[1])as lines:
     ref_start=0
     ref_end=0
     ref_name=0
+    r_len=data[6]
     flag=0
     for line in lines:
         data=line.split()
         name=data[0]
+        dev=data[9]
         start=int(data[2])
         end=int(data[3])
         temp_len=end-start
         ref_end=int(data[8])
         ref_start=int(data[7])
+        if dev=="-":
+            ref_start,ref_end=r_len-ref_start,r_len-ref_end
         ref_name=data[5]
         if name==prename:
             if temp_len>pre_len:
