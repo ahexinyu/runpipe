@@ -35,6 +35,7 @@ if __name__ == '__main__':
                 error_count += 1
             else:
                 ref_arr[ref_name][begin - 1:end] = True
+                print('{} {}'.format(begin-1,end))
 
     count = np.array([np.add.reduce(x) for x in ref_arr.values()]).sum()
 
