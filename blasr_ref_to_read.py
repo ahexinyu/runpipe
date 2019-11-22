@@ -5,7 +5,7 @@ start=0
 end=0
 totalbase=0
 M_base=0
-out=open("/rhome/xyhe/bigdata/dataxy/change_ref/kuda/read_align_to_ref","w")
+out=open("/rhome/xyhe/bigdata/dataxy/change_ref/kuda/blasr_test/read_align_to_ref","w")
 with open(sys.argv[1])as lines:
     name=""
     prename=""
