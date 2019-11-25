@@ -62,7 +62,7 @@ if __name__ == '__main__':
     bwa_cmd = 'bwa'
 
     # Evaluate command
-    road_roller_da = '/bigdata/baolab/huangs/Shared/road_roller_cpp/build/road_roller''
+    road_roller_da = '/bigdata/baolab/huangs/Shared/road_roller_cpp/build/road_roller'
 
     parser = argparse.ArgumentParser(
         description='mei you nuo ai er wan wo yao si le', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
