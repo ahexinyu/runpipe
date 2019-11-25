@@ -10,7 +10,7 @@ import num2ref
 
 
 def mecat_align(mecat_cmd, read_path, ref_path, wrk_dir, plus, thread_num, out_path):
-    cmd = [mecat_cmd, '-d', read_path, '-r', ref_path, '-w', os.path.join(wrk_dir, 'wrk'),
+    cmd = [mecat_cmd, '-d', read_path, '-r', ref_path, '-w', './wrk',
            '-t', str(thread_num)]
 
     if plus:
