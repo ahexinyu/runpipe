@@ -1,31 +1,71 @@
-import itertools
+import argparse
 import os
 import subprocess
 import sys
-import argparse
 
 import batb2ref
+import blasr2ref
+import bwa2ref
 import num2ref
+
+
+def mecat_align(mecat_cmd, read_path, ref_path, wrk_dir, plus, thread_num, out_path):
+    cmd = [mecat_cmd, '-d', read_path, '-r', ref_path, '-w', os.path.join(wrk_dir, 'wrk'),
+           '-t', str(thread_num)]
+
+    if plus:
+        cmd += ['-o', '2.ref.old', '-p', '2.ref']
+    else:
+        cmd += ['-o', '1.ref']
+
+    subprocess.run(cmd, stdout=None, stderr=subprocess.STDOUT, cwd=wrk_dir)
+    num2ref.num2ref(read_path, os.path.join(wrk_dir,  '2.ref' if plus else '1.ref'), out_path)
+
+    return out_path
+
+
+def blasr_align(blasr_cmd, read_path, ref_path, wrk_dir, thread_num, out_path):
+    cmd = [blasr_cmd, read_path, ref_path, '--out', '3.ref',
+           '--nproc', str(thread_num), '-m', '5']
+    print(cmd)
+    subprocess.run(cmd, stdout=None, stderr=subprocess.STDOUT, cwd=wrk_dir)
+    blasr2ref.blasr2ref(os.path.join(wrk_dir, '3.ref'), out_path)
+
+    return out_path
+
+
+def bwa_align(bwa_cmd, read_path, ref_path, wrk_dir, thread_num, out_path):
+    subprocess.run([bwa_cmd, 'index', ref_path], stdout=None, stderr=None, cwd=wrk_dir)
+    with open(os.path.join(wrk_dir, '4.ref'), 'w') as sam_f:
+        subprocess.run([bwa_cmd, 'mem', '-t', str(thread_num), ref_path, read_path], stdout=sam_f, stderr=None, cwd=wrk_dir)
+    bwa2ref.bwa2ref(os.path.join(wrk_dir, '4.ref'), read_path, ref_path, out_path)
+
+    return out_path
+
 
 if __name__ == '__main__':
     # Cmd env
     # Modify mummer command
     mummer_bin_dir = ''
-    nucmer_cmd='nucmer'
-    #nucmer_cmd = os.path.join(mummer_bin_dir, 'nucmer')
-    #show_coords_cmd = os.path.join(mummer_bin_dir, 'show-coords')
-    show_coords_cmd='show-coords'
+    nucmer_cmd = os.path.join(mummer_bin_dir, 'nucmer')
+    show_coords_cmd = os.path.join(mummer_bin_dir, 'show-coords')
+
     # Modify mecat command
     mecat_old_cmd = '/rhome/xyhe/bigdata/MECAT/Linux-amd64/bin/mecat2ref'
     mecat_new_cmd = '/rhome/xyhe/bigdata/formal/formal/MECAT-master_1/Linux-amd64/bin/mecat2ref'
-    #mecat_new_cmd = '/rhome/xyhe/bigdata/2MECAT/mecat2ref'
     mecat_cmd_list = [mecat_old_cmd, mecat_new_cmd]
 
+    # Modify blasr command
+    blasr_cmd = 'blasr'
+
+    # Modify bwa command
+    bwa_cmd = 'bwa'
+
     # Evaluate command
-    road_roller_da = '/bigdata/baolab/huangs/Shared/road_roller_cpp/build/road_roller'
+    road_roller_da = '/bigdata/baolab/huangs/Shared/road_roller_cpp/build/road_roller''
 
     parser = argparse.ArgumentParser(
-        description='种田酱好萌', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+        description='mei you nuo ai er wan wo yao si le', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument('--version', action='version', version='%(prog)s 2.01beta')
     parser.add_argument('-w', '--work', required=True, type=str, default=argparse.SUPPRESS,
                         help='Temporary directory for working')
@@ -62,7 +102,7 @@ if __name__ == '__main__':
     read_to_target_path = os.path.abspath(args.__dict__.get('from'))
     thread_num = args.thread
 
-    wrk_dir = os.path.abspath(args.work)
+    wrk_dir = args.work
     mummer_dir = os.path.join(wrk_dir, 'nucmer')
     align_dir = os.path.join(wrk_dir, 'align')
     os.makedirs(mummer_dir, exist_ok=True)
@@ -71,8 +111,6 @@ if __name__ == '__main__':
     print('Running NUCMER...')
     subprocess.run([nucmer_cmd, '--maxgap=500', '--minmatch=10', '-p', 'out', target_path, ref_path],
                    stdout=None, stderr=subprocess.STDOUT, cwd=mummer_dir)
-    '''subprocess.run([nucmer_cmd, '--maxgap=500', '--mincluster=100', '-p', 'out', target_path, ref_path],
-               stdout=None, stderr=subprocess.STDOUT, cwd=mummer_dir)'''
     print('OK')
 
     print('Runnning SHOW-COORD...')
@@ -85,6 +123,7 @@ if __name__ == '__main__':
     batb2ref.batb2ref(os.path.join(mummer_dir, 'out.coords'), os.path.join(mummer_dir, 'ref_to_target.ref'))
     print('OK')
 
+    # --------------------- ALIGNMENTS --------------------- #
     align_path_list = list()
 
     print('Running MECAT...')
@@ -93,22 +132,38 @@ if __name__ == '__main__':
     os.makedirs(mecat_dir, exist_ok=True)
 
     print('\trunning {}'.format(mecat_old_cmd))
-    subprocess.run([mecat_old_cmd, '-d', read_path, '-r', ref_path, '-w', os.path.join(mecat_dir, 'wrk'),
-                    '-t', str(thread_num), '-o', '1.ref'],
-                   stdout=None, stderr=subprocess.STDOUT, cwd=mecat_dir)
-    num2ref.num2ref(read_path, os.path.join(mecat_dir, '1.ref'), os.path.join(align_dir, '1.ref'))
-    align_path_list.append(os.path.join(align_dir, '1.ref'))
+    out_path = mecat_align(mecat_old_cmd, read_path, ref_path, mecat_dir, False, thread_num, os.path.join(align_dir, '1.ref'))
+    align_path_list.append(out_path)
     print('\tok')
 
     print('\trunning {}'.format(mecat_new_cmd))
-    subprocess.run([mecat_new_cmd, '-d', read_path, '-r', ref_path, '-w', os.path.join(mecat_dir, 'wrk'),
-                    '-t', str(thread_num), '-o', 'nouse.ref', '-p', '2.ref'],
-                   stdout=None, stderr=subprocess.STDOUT, cwd=mecat_dir)
-    num2ref.num2ref(read_path, os.path.join(mecat_dir, '2.ref'), os.path.join(align_dir, '2.ref'))
-    align_path_list.append(os.path.join(align_dir, '2.ref'))
+    out_path = mecat_align(mecat_new_cmd, read_path, ref_path, mecat_dir, True, thread_num, os.path.join(align_dir, '2.ref'))
+    align_path_list.append(out_path)
     print('\tok')
-
     print('OK')
+
+    print('Running BLASR...')
+
+    blasr_dir = os.path.join(align_dir, 'blasr')
+    os.makedirs(blasr_dir, exist_ok=True)
+
+    print('\trunning {}'.format(blasr_cmd))
+    out_path = blasr_align(blasr_cmd, read_path, ref_path, blasr_dir, thread_num,  os.path.join(align_dir, '3.ref'))
+    align_path_list.append(out_path)
+    print('\tok')
+    print('OK')
+
+    print('Running BWA...')
+
+    bwa_dir = os.path.join(align_dir, 'bwa')
+    os.makedirs(bwa_dir, exist_ok=True)
+
+    print('\trunning {}'.format(bwa_cmd))
+    out_path = bwa_align(bwa_cmd, read_path, ref_path, bwa_dir, thread_num, os.path.join(align_dir, '4.ref'))
+    align_path_list.append(out_path)
+    print('\tok')
+    print('OK')
+    # --------------------- ALIGNMENTS --------------------- #
 
     print('Spear the Gungnir!')
     cmd_skeleton = [
@@ -124,6 +179,8 @@ if __name__ == '__main__':
 
     if args.group:
         cmd_skeleton.append('-g')
+
+    print(cmd_skeleton)
 
     result = subprocess.run(cmd_skeleton,
                             stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
