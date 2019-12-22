@@ -1,6 +1,6 @@
 #!/usr/bin/python
 import sys
-out=open("/rhome/xyhe/bigdata/dataxy/change_ref/jurei/jurei.info","w")
+out=open("/rhome/xyhe/bigdata/dataxy/change_ref/rubella/rube.info","w")
 with open(sys.argv[1])as lines:
     name=""
     length=""
