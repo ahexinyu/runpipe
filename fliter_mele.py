@@ -24,5 +24,5 @@ def rmShort(in_file, out_file, length):
                 f_out.write(seq_id)
                 f_out.write(seq)
 if __name__ == '__main__':
-    rmShort(in_file,out_file,300)
+    rmShort(in_file,out_file,150)
 
