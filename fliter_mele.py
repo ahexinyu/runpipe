@@ -21,7 +21,7 @@ def rmShort(in_file, out_file, length):
             else:
                 cunt[id_] += line
         for seq_id, seq in cunt.items():
-            if len(seq) > length&&count<400:
+            if len(seq) > length and count<400:
                 count+=1
                 f_out.write(seq_id)
                 f_out.write(seq)
