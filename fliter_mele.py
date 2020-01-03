@@ -1,5 +1,6 @@
 #!/usr/bin/python
 import sys
+from collections import defaultdict
 out_file='/rhome/xyhe/bigdata/dataxy/target/mele.fasta'
 in_file='/rhome/xyhe/bigdata/dataxy/target/melanogaster.fasta'
 def rmShort(in_file, out_file, length):
