@@ -3,6 +3,7 @@ import sys
 from collections import defaultdict
 out_file='/rhome/xyhe/bigdata/dataxy/target/mele.fasta'
 in_file='/rhome/xyhe/bigdata/dataxy/target/melanogaster.fasta'
+count=0
 def rmShort(in_file, out_file, length):
     cunt = defaultdict(str)
     with open(in_file) as f_in, open(out_file, 'w') as f_out:
@@ -20,7 +21,8 @@ def rmShort(in_file, out_file, length):
             else:
                 cunt[id_] += line
         for seq_id, seq in cunt.items():
-            if len(seq) > length:
+            if len(seq) > length&&count<400:
+                count+=1
                 f_out.write(seq_id)
                 f_out.write(seq)
 if __name__ == '__main__':
