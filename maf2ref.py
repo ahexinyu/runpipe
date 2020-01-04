@@ -16,7 +16,7 @@ def get_fasta_name(file_path):
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
-        print('Usage: {} [directory with maf and ref] [output file]'.format(sys.argv[0]), file=sys.stderr)
+        print('Usage: {} [directory with maf and ref] [output file]'.format(sys.argv[0]),file=sys.stderr)
         exit(1)
 
     if not os.path.isdir(sys.argv[1]):
