@@ -1,16 +1,15 @@
 #!/usr/bin/python
 import sys
 base=0
-filename="/rhome/xyhe/bigdata/dataxy/reference/ref_ecoli.fq"
-out1=open("/rhome/xyhe/bigdata/dataxy/reference/cut3","w")
-with open(filename)as lines:
+read_num=0
+out=open('/rhome/xyhe/bigdata/dataxy/target/2mele.fasta','w')
+with open(sys.argv[1])as lines:
     for line in lines:
-        if line[0]=='>':
-            out1.write(">NC_011750.1"+'\n')
-            continue
-        else:
-            for ch in line:
-                c=ch
-                base=base+1
-                if base>1700000and base<1801000:
-                    out1.write(ch)
+        line =line.strip('\n')
+        if read_num<400:
+            if line[0]=='>':
+                read_num=read_num+1
+                out.write(line)
+            else:
+                out.write(line)
+
