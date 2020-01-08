@@ -14,9 +14,9 @@ def mecat_align(mecat_cmd, read_path, ref_path, wrk_dir, plus, thread_num, out_p
            '-t', str(thread_num)]
 
     if plus:
-        cmd += ['-o', '2.ref.old', '-p', '2.ref']
+        cmd += ['-o', '2.ref.old', '-p', '2.ref', '-b', '1']
     else:
-        cmd += ['-o', '1.ref']
+        cmd += ['-o', '1.ref', '-b', '1']
     print(cmd)
     subprocess.run(cmd, stdout=None, stderr=subprocess.STDOUT, cwd=wrk_dir)
     num2ref.num2ref(read_path, os.path.join(wrk_dir,  '2.ref' if plus else '1.ref'), out_path)
