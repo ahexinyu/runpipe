@@ -12,4 +12,4 @@ with open(sys.argv[1])as lines:
         else:
             length+=len(line)
 print('read_num is',read_num)
-print (length)
+print(length)
