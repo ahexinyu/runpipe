@@ -142,7 +142,7 @@ if __name__ == '__main__':
     print('\tok')
     print('OK')
 
-    '''print('Running BLASR...')
+    print('Running BLASR...')
 
     blasr_dir = os.path.join(align_dir, 'blasr')
     os.makedirs(blasr_dir, exist_ok=True)
@@ -162,7 +162,7 @@ if __name__ == '__main__':
     out_path = bwa_align(bwa_cmd, read_path, ref_path, bwa_dir, thread_num, os.path.join(align_dir, '4.ref'))
     align_path_list.append(out_path)
     print('\tok')
-    print('OK')'''
+    print('OK')
     # --------------------- ALIGNMENTS --------------------- #
 
     print('Spear the Gungnir!')
