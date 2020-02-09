@@ -1,7 +1,7 @@
 #!/usr/bin/python
 import sys
 base=0
-out=open("/rhome/xyhe/bigdata/dataxy/change_ref/39/bwa_start_to_end","w")
+out=open("/rhome/xyhe/bigdata/dataxy/change_ref/39/mecat_start_to_end","w")
 with open(sys.argv[1])as lines:
     name=""
     prename=""
