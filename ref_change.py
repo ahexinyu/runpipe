@@ -1,6 +1,6 @@
 #!/usr/bin/python
 import sys
-out=open("/rhome/xyhe/bigdata/dataxy/change_ref/39/39.info","w")
+out=open("/rhome/xyhe/bigdata/dataxy/change_ref/39/h1.info","w")
 with open(sys.argv[1])as lines:
     name=""
     length=""
@@ -11,4 +11,4 @@ with open(sys.argv[1])as lines:
             name=data[1].strip('SN:')
             length=data[2].strip('LN:')
             count+=1
-            out.write(str(count)+' '+'N'+name+' '+length+'\n')
+            out.write(str(count)+' '+name+' '+length+'\n')
