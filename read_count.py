@@ -7,7 +7,6 @@ with open(sys.argv[1])as lines:
         line =line.strip('\n')
         if line[0]=='@':
             read_num=read_num+1
-            print length
             length=0
         else:
             length+=len(line)
