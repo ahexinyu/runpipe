@@ -11,4 +11,4 @@ with open(sys.argv[1])as lines:
             name=data[1].strip('SN:')
             length=data[2].strip('LN:')
             count+=1
-            out.write(str(count)+' '+'N'+name+' '+length+'\n')
+            out.write(str(count)+' '+name+' '+length+'\n')
