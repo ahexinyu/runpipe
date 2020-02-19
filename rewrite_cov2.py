@@ -2,7 +2,7 @@ import numpy as np
 
 if __name__ == '__main__':
     ref_file = '/rhome/xyhe/bigdata/dataxy/moni/rube/rube.info'
-    align_file = '/rhome/xyhe/bigdata/dataxy/moni/rube/blasr_start_to_end'
+    align_file = '/rhome/xyhe/bigdata/dataxy/moni/rube/bwa_start_to_end'
 
     ref_arr = dict()
 
