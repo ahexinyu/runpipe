@@ -7,7 +7,7 @@ out=open("/rhome/xyhe/bigdata/dataxy/length","w")
 with open(sys.argv[1])as lines:
     for line in lines:
         line =line.strip('\n')
-        if line[0]=='@':
+        if line[0]=='@'or line=='+':
             read_num=read_num+1
         else:
             length+=len(line)
