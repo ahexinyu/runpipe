@@ -2,7 +2,7 @@ import numpy as np
 
 if __name__ == '__main__':
     ref_file = '/rhome/xyhe/bigdata/dataxy/moni/lyrata/lyrata.info'
-    align_file = '/rhome/xyhe/bigdata/dataxy/moni/lyrata/bwa_start_to_end'
+    align_file = '/rhome/xyhe/bigdata/dataxy/moni/lyrata/our_start_to_end'
 
     ref_arr = dict()
 
