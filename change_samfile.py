@@ -1,7 +1,7 @@
 #!/usr/bin/python
 import sys
 base=0
-out=open("/rhome/xyhe/bigdata/dataxy/moni/jurei/zsmini_start_to_end","w")
+out=open("/rhome/xyhe/bigdata/dataxy/moni/Euba/zsmini_start_to_end","w")
 with open(sys.argv[1])as lines:
     name=""
     prename=""
