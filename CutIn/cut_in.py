@@ -120,7 +120,7 @@ if __name__ == '__main__':
     os.makedirs(mummer_dir, exist_ok=True)
     os.makedirs(align_dir, exist_ok=True)
 
-    '''print('Running NUCMER...')
+    print('Running NUCMER...')
     subprocess.run([nucmer_cmd, '--maxgap=500', '--minmatch=10', '-p', 'out', target_path, ref_path],
                    stdout=None, stderr=subprocess.STDOUT, cwd=mummer_dir)
     print('OK')
@@ -138,7 +138,7 @@ if __name__ == '__main__':
     # --------------------- ALIGNMENTS --------------------- #
     align_path_list = list()
 
-    print('Running MECAT...')
+    '''print('Running MECAT...')
 
     mecat_dir = os.path.join(align_dir, 'mecat')
     os.makedirs(mecat_dir, exist_ok=True)
