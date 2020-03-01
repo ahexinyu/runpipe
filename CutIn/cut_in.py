@@ -9,6 +9,7 @@ import bwa2ref
 import num2ref
 
 
+
 def mecat_align(mecat_cmd, read_path, ref_path, wrk_dir, plus, thread_num, out_path):
     cmd = [mecat_cmd, '-d', read_path, '-r', ref_path, '-w', './wrk',
            '-t', str(thread_num)]
@@ -42,6 +43,14 @@ def bwa_align(bwa_cmd, read_path, ref_path, wrk_dir, thread_num, out_path):
 
     return out_path
 
+def minimap2_align(minimap2_cmd, read_path, ref_path, wrk_dir, thread_num, out_path):
+    with open(os.path.join(wrk_dir, '5.ref'), 'w') as sam_f:
+        subprocess.run([minimap2_cmd, '-ax','map-pb' '-t', str(thread_num), ref_path, read_path], stdout=sam_f, stderr=None, cwd=wrk_dir)
+    bwa2ref.bwa2ref(os.path.join(wrk_dir, '5.ref'), read_path, ref_path, out_path)
+    return out_path
+
+
+
 
 if __name__ == '__main__':
     # Cmd env
@@ -60,7 +69,10 @@ if __name__ == '__main__':
 
     # Modify bwa command
     bwa_cmd = 'bwa'
-
+    
+    # Modify minimap command
+    minimap2_cmd = '/rhome/xyhe/bigdata/dataxy/minimap2/minimap2/minimap2'
+    
     # Evaluate command
     road_roller_da = '/bigdata/baolab/huangs/Shared/road_roller_cpp/build/road_roller'
 
@@ -108,7 +120,7 @@ if __name__ == '__main__':
     os.makedirs(mummer_dir, exist_ok=True)
     os.makedirs(align_dir, exist_ok=True)
 
-    print('Running NUCMER...')
+    '''print('Running NUCMER...')
     subprocess.run([nucmer_cmd, '--maxgap=500', '--minmatch=10', '-p', 'out', target_path, ref_path],
                    stdout=None, stderr=subprocess.STDOUT, cwd=mummer_dir)
     print('OK')
@@ -162,7 +174,20 @@ if __name__ == '__main__':
     out_path = bwa_align(bwa_cmd, read_path, ref_path, bwa_dir, thread_num, os.path.join(align_dir, '4.ref'))
     align_path_list.append(out_path)
     print('\tok')
+    print('OK')'''
+    print('Running minimap2...')
+
+    minimap2_dir = os.path.join(align_dir, 'minimap2')
+    os.makedirs(minimap2_dir, exist_ok=True)
+    
+    print('\trunning {}'.format(minimap2_cmd))
+    out_path = minimap2_align(minimap2_cmd, read_path, ref_path, minimap2_dir, thread_num, os.path.join(align_dir, '5.ref'))
+    align_path_list.append(out_path)
+    print('\tok')
     print('OK')
+    
+
+
     # --------------------- ALIGNMENTS --------------------- #
 
     print('Spear the Gungnir!')
