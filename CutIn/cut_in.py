@@ -45,7 +45,7 @@ def bwa_align(bwa_cmd, read_path, ref_path, wrk_dir, thread_num, out_path):
 
 def minimap2_align(minimap2_cmd, read_path, ref_path, wrk_dir, thread_num, out_path):
     with open(os.path.join(wrk_dir, '5.ref'), 'w') as sam_f:
-        subprocess.run([minimap2_cmd, '-ax','map-pb' '-t', str(thread_num), ref_path, read_path], stdout=sam_f, stderr=None, cwd=wrk_dir)
+        subprocess.run([minimap2_cmd, '-ax','map-pb','-t', str(thread_num), ref_path, read_path], stdout=sam_f, stderr=None, cwd=wrk_dir)
     bwa2ref.bwa2ref(os.path.join(wrk_dir, '5.ref'), read_path, ref_path, out_path)
     return out_path
 
