@@ -154,7 +154,7 @@ if __name__ == '__main__':
     print('\tok')
     print('OK')
 
-    print('Running BLASR...')
+    '''print('Running BLASR...')
 
     blasr_dir = os.path.join(align_dir, 'blasr')
     os.makedirs(blasr_dir, exist_ok=True)
@@ -165,7 +165,7 @@ if __name__ == '__main__':
     print('\tok')
     print('OK')
 
-    '''print('Running BWA...')
+    print('Running BWA...')
 
     bwa_dir = os.path.join(align_dir, 'bwa')
     os.makedirs(bwa_dir, exist_ok=True)
