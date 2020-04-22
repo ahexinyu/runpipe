@@ -2,7 +2,7 @@
 import sys
 
 filename="/rhome/xyhe/bigdata/dataxy/PBSIM-PacBio-Simulator/src/data/human"
-out=open("/rhome/xyhe/bigdata/dataxy/PBSIM-PacBio-Simulator/src/data/human2")
+out=open("/rhome/xyhe/bigdata/dataxy/PBSIM-PacBio-Simulator/src/data/human2","w")
 with open(filename)as lines:
     for line in lines:
         data=line.split()
